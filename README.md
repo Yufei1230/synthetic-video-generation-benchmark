@@ -35,15 +35,12 @@ The goal is to provide a practical reference for researchers and practitioners c
 synthetic-video-generation-benchmark/
 ├── README.md
 ├── notebooks/               # Colab notebooks
-│   ├── videocrafter.ipynb
-│   ├── dynamicrafter.ipynb
+│   ├── CogVideoX.ipynb
+│   ├── Dynamicraft.ipynb
 │   └── vid2vid.ipynb
-└── results/                 # Sample outputs and screenshots
-    ├── kling/
-    ├── vidu/
-    ├── videocrafter/
-    ├── dynamicrafter/
-    └── vid2vid/
+|   └── Text2Video.ipynb
+|   └── First_order_model.ipynb
+
 ```
 ---
 ## Acknowledgements
