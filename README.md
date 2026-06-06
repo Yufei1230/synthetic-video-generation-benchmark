@@ -1,2 +1,53 @@
-# synthetic-video-generation-benchmark
-This repository compares various synthetic video generation techniques.
+# Synthetic Video Generation Benchmark
+
+A qualitative comparison of synthetic video generation techniques, covering Text-to-Video models, Generative AI LLMs, First Order Motion Models, Diffusion Models, and Video-to-Video translation methods.
+
+---
+
+## Overview
+
+This repository documents hands-on experiments with various synthetic video generation tools and models. Open-source models were tested online （Kling, Ying, Vidu, Jimeng); proprietary tools were explored through Colab notebooks included in this repo.
+
+The goal is to provide a practical reference for researchers and practitioners choosing between synthetic video generation approaches.
+
+---
+
+## Techniques Compared
+
+| Type | Technique | Advantages | Limitations |
+|------|-----------|------------|-------------|
+| Text-to-Video Models | [Text2Video-Zero](https://github.com/Picsart-AI-Research/Text2Video-Zero) | Fast, highly flexible and customized, high quality | Requires detailed and accurate text input |
+| | [CogVideo](https://github.com/THUDM/CogVideo) | Fast, highly flexible and customized, high quality | Requires detailed and accurate text input |
+| Gen AI LLMs | [Kuaishou's Kling](https://kling.kuaishou.com) | High quality, highly customizable, very mature | Can be costly |
+| | [Zhipu AI's Ying](https://ying.zhipuai.cn) | High quality, highly customizable, very mature | Can be costly |
+| | [Shengshu AI's Vidu](https://www.vidu.studio) | High quality, highly customizable, very mature | Can be costly |
+| | [Jimeng AI](https://jimeng.jianying.com) | High quality, highly customizable, very mature | Can be costly |
+| First Order Motion Models | [First Order Model](https://github.com/AliaksandrSiarohin/first-order-model) | Good for generating motion from static images, relatively simple | Limited to single-image input and simple scenes |
+| Diffusion Models | [VideoCrafter](https://github.com/AILab-CVC/VideoCrafter) | High quality, fast | Computationally intensive, requires substantial data |
+| | [DynamiCrafter](https://github.com/Doubiiu/DynamiCrafter) | High quality, fast | Computationally intensive, requires substantial data |
+| Video-to-Video Translation | [Vid2Vid](https://github.com/NVIDIA/vid2vid) | Effective for video-to-video translation | Requires high-quality input for best results, complex setup |
+
+---
+
+## Repository Structure
+
+```
+synthetic-video-generation-benchmark/
+├── README.md
+├── notebooks/               # Colab notebooks
+│   ├── videocrafter.ipynb
+│   ├── dynamicrafter.ipynb
+│   └── vid2vid.ipynb
+└── results/                 # Sample outputs and screenshots
+    ├── kling/
+    ├── vidu/
+    ├── videocrafter/
+    ├── dynamicrafter/
+    └── vid2vid/
+```
+
+## References
+
+```
+
+```
