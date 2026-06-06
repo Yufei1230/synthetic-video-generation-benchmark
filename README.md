@@ -34,12 +34,12 @@ The goal is to provide a practical reference for researchers and practitioners c
 ```
 synthetic-video-generation-benchmark/
 ├── README.md
-├── notebooks/               # Colab notebooks
-│   ├── CogVideoX.ipynb
-│   ├── Dynamicraft.ipynb
-│   └── vid2vid.ipynb
-|   └── Text2Video.ipynb
-|   └── First_order_model.ipynb
+├── notebooks/
+   ├── cogvideox.ipynb
+   ├── dynamicrafter.ipynb
+   ├── vid2vid.ipynb
+   ├── text2video.ipynb
+   └── first_order_model.ipynb
 
 ```
 ---
