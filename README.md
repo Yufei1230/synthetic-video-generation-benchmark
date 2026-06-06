@@ -45,9 +45,14 @@ synthetic-video-generation-benchmark/
     ├── dynamicrafter/
     └── vid2vid/
 ```
+---
+## Acknowledgements
 
-## References
+This project references and builds upon the following open-source works:
 
-```
-
-```
+- [Text2Video-Zero](https://github.com/Picsart-AI-Research/Text2Video-Zero) by Picsart AI Research
+- [CogVideo](https://github.com/THUDM/CogVideo) by THUDM
+- [First Order Motion Model](https://github.com/AliaksandrSiarohin/first-order-model) by Aliaksandr Siarohin et al.
+- [VideoCrafter](https://github.com/AILab-CVC/VideoCrafter) by AILab-CVC (Tencent)
+- [DynamiCrafter](https://github.com/Doubiiu/DynamiCrafter) by Doubiiu et al. (ECCV 2024 Oral)
+- [Vid2Vid](https://github.com/NVIDIA/vid2vid) by NVIDIA
