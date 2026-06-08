@@ -6,7 +6,7 @@ A qualitative comparison of synthetic video generation techniques, covering Text
 
 ## Overview
 
-This repository documents hands-on experiments with various synthetic video generation tools and models. Some models were tested online （Kling, Ying, Vidu, Jimeng); other tools were explored through Colab notebooks included in this repo.
+This repository documents hands-on experiments with various synthetic video generation tools and models. Some models were tested online like Kling, Ying, Vidu, and Jimeng; other tools were explored through Colab notebooks included in this repo.
 
 The goal is to provide a practical reference for researchers and practitioners choosing between synthetic video generation approaches.
 
