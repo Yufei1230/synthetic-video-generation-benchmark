@@ -1,0 +1,11 @@
+# Local environments and generated Python cache
+.venv/
+__pycache__/
+*.py[cod]
+# Restricted research inputs and local credentials stay outside tracked content
+.private/
+data/
+checkpoints/
+.env
+.env.*
+!.env.example

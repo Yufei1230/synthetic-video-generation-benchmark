@@ -1,0 +1,2 @@
+# Chart generation only; not the research-model environment.
+matplotlib==3.10.8

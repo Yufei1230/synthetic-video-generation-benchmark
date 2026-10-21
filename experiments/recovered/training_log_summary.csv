@@ -1,0 +1,14 @@
+condition_directory,run_directory,event_record,validation_points,first_step,last_step,status
+camera_clothes_background,10-21-2025-16-01-50,1,50,0,49,stored_scalar_fields_only
+camera_clothes_background2,10-15-2025-21-08-53,2,50,0,49,stored_scalar_fields_only
+camera_clothes_background_hairsytle,10-21-2025-17-30-42,3,43,0,42,stored_scalar_fields_only
+camera_clothes,10-15-2025-07-10-07,4,50,0,49,stored_scalar_fields_only
+camera_clothes,10-15-2025-07-10-07,5,1,0,0,stored_scalar_fields_only
+clothes,10-13-2025-07-13-54,6,37,0,36,stored_scalar_fields_only
+hairstyle,10-13-2025-18-36-40,7,50,0,49,stored_scalar_fields_only
+background,10-12-2025-17-19-15,8,50,0,49,stored_scalar_fields_only
+background,10-12-2025-17-19-15,9,1,0,0,stored_scalar_fields_only
+background,10-12-2025-17-19-15,10,0,,,stored_scalar_fields_only
+baseline,10-12-2025-16-58-30,11,0,,,stored_scalar_fields_only
+baseline,10-12-2025-07-55-58,12,47,0,46,stored_scalar_fields_only
+baseline,10-12-2025-07-36-09,13,0,,,stored_scalar_fields_only
