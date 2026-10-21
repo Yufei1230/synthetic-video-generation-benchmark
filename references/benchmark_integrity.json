@@ -1,0 +1,12 @@
+{
+  "base_commit": "dd16e40f6828803cf3d13bffc4f3fe48c473cabf",
+  "original_readme_sha256": "422f60170827ed6787e7195e61b902568954f0d1a9b11cab4ea2c2f9972a9f5a",
+  "files": {
+    "notebooks/CogVideoX.ipynb": "6091f19b65e0f1a76820e051a23f40ccd639f2ee3a7668eac38c38f93a4c9fbf",
+    "notebooks/DynamiCraft.ipynb": "7a2cd4058aafb6eb8eeda2b68a45170942d9f92cf217ab8a76c315e3b65636cb",
+    "notebooks/Text2Video.ipynb": "be68b9e7c6dea9f30a7c20bd5858c3af4ae3ad0924ffb3a61e07890d9ff47f9f",
+    "notebooks/first_order_model.ipynb": "51761923b317175d9b404ad0626b8d2b066d0c89eeeaefe48f4900c06d44a2bb",
+    "notebooks/vid2vid.ipynb": "afc72bc950b5e5e060800668d0f75ca6d624cc8de1276d4f616017ff19301c9c",
+    "results/video.md": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+  }
+}

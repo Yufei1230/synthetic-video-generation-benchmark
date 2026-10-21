@@ -1,0 +1,9 @@
+experiment_id,label,group,real_training_videos,synthetic_training_videos,total_training_videos,factors,top1_pct,shaking_pct,swirling_pct,buretting_pct,evidence_status,evaluation_unit,unit_evidence,source_location
+baseline,Real only,baseline,90,0,90,,77.78,100.00,86.21,63.64,paper_reported,frame,author_clarification_not_code_verified,"Section IV-B, p. 6"
+aug_a,Camera angle,single,90,60,150,camera,57.78,76.47,93.10,27.27,paper_reported,frame,author_clarification_not_code_verified,"Table VII, p. 7"
+aug_b,Clothing,single,90,60,150,clothing,93.33,100.00,100.00,86.36,paper_reported,frame,author_clarification_not_code_verified,"Table VII, p. 7"
+aug_c,Background,single,90,60,150,background,88.89,100.00,72.41,95.45,paper_reported,frame,author_clarification_not_code_verified,"Table VII, p. 7"
+aug_d,Hairstyle,single,90,60,150,hairstyle,95.56,100.00,100.00,90.91,paper_reported,frame,author_clarification_not_code_verified,"Table VII, p. 7"
+combo_a,Camera + Clothing,multi,90,120,210,camera;clothing,53.33,100.00,37.93,45.45,paper_reported,frame,author_clarification_not_code_verified,"Table VIII, p. 7"
+combo_b,Camera + Clothing + Background,multi,90,180,270,camera;clothing;background,91.11,100.00,82.76,93.18,paper_reported,frame,author_clarification_not_code_verified,"Table VIII, p. 7"
+combo_c,Camera + Clothing + Background + Hairstyle,multi,90,240,330,camera;clothing;background;hairstyle,81.11,100.00,55.17,90.91,paper_reported,frame,author_clarification_not_code_verified,"Table VIII, p. 7"
