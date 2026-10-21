@@ -6,7 +6,11 @@
 |---|---|---|
 | P1 | Owner-supplied nine-page PDF, internal title: *Enhancing Classroom Monitoring in Science Experiments Using Synthetic Videos* | Primary source for methodology, dataset design and results; text and all page layouts inspected; final publisher equivalence unverified |
 | G1 | [Repository base commit](https://github.com/Yufei1230/synthetic-video-generation-benchmark/tree/dd16e40f6828803cf3d13bffc4f3fe48c473cabf) | Entire tracked tree and 19-commit history inspected; benchmark static code and stored output, not rerun |
-| A1 | Author clarification on 2026-10-21: accuracy is based on frames, not videos | Corrects how metrics are described; exact evaluator and counts still need code verification |
+| A1 | Author clarification on 2026-10-21: accuracy is based on frames, not videos | Metric-definition context; recovered code now explains clip-prediction repetition over sampled frames |
+| D1 | Original `Experiment/slowfast.ipynb` and earlier research notebooks | Actual static implementation; sanitized three-class copy released with [provenance](recovered_notebook_integrity.json) |
+| D2 | Drive prediction CSVs, summary CSVs, argument files, manifests and event logs | [Saved-output reconciliation](../docs/DRIVE_AUDIT.md); no model rerun or complete checkpoint lineage |
+| D3 | Research journals/procedure document and relevant Forms/SDG Ethics text | Technical chronology and release context; originals and identifiable content withheld |
+| U1 | [NVIDIA SynthDa](https://github.com/NVIDIA/synthda), two public notebooks and license | Static code comparison and [attribution/license](THIRD_PARTY_NOTICES.md); current upstream is not asserted as the exact historical checkout |
 | T1 | Owner's attached task specification | Scope, preservation requirement, requested Drive folder categories and publication limits; not experimental evidence |
 | B1 | [NIE repository record](https://repository.nie.edu.sg/entities/publication/a68ec781-5cdd-4edc-b5c2-d908d8ce10a1) | Search-indexed institutional record confirms title/DOI; full page returned HTTP 405 during audit |
 | B2 | [JST J-GLOBAL bibliographic record](https://jglobal.jst.go.jp/en/detail?JGLOBAL_ID=202602230116779954) | Corroborates six authors, IEEE conference proceedings, ICIET 2026 and pp. 65–73; bibliographic metadata, not experiment verification |
@@ -26,8 +30,8 @@ Yufei Li, Edwin Chng, Megani Rajendran, Aik Beng Ng, Yong Leng Kelvin Tan, and S
 
 ## Framework sources
 
-- SlowFast: P1 reference [3], [original paper](https://openaccess.thecvf.com/content_ICCV_2019/html/Feichtenhofer_SlowFast_Networks_for_Video_Recognition_ICCV_2019_paper.html). The project-specific implementation/version is not recovered.
-- SynthDa: P1 reference [12], [publication](https://doi.org/10.1145/3610543.3626168). The project's exact source revision and integration scripts are not recovered.
+- SlowFast: P1 reference [3], [original paper](https://openaccess.thecvf.com/content_ICCV_2019/html/Feichtenhofer_SlowFast_Networks_for_Video_Recognition_ICCV_2019_paper.html). The recovered source uses PyTorchVideo `slowfast_r50`; exact execution dependency/commit and checkpoint provenance remain incomplete.
+- SynthDa: P1 reference [12], [publication](https://doi.org/10.1145/3610543.3626168). Integration notebooks were inspected; substantial recognition helper reuse is attributed in the third-party notices. Exact final-render revision/lineage remains incomplete.
 - Google AI Studio and Kling: named by P1; service/model versions and generation logs are unavailable.
 - The benchmark's original references and acknowledgements remain in the [main README](../README.md); additional source-level dependencies are listed in the [notebook audit](../docs/BENCHMARK_AUDIT.md).
 

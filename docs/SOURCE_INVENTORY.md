@@ -1,49 +1,51 @@
 # Source inventory and integration decisions
 
-Audit date: 2026-10-21. Repository: `Yufei1230/synthetic-video-generation-benchmark`; base branch `main`, commit `dd16e40f6828803cf3d13bffc4f3fe48c473cabf`. Files below were read in full, including notebook source and stored outputs. No benchmark notebook was executed.
+Audit date: 2026-10-21. Original repository base: `dd16e40f6828803cf3d13bffc4f3fe48c473cabf`. The earlier Drive connection blocker is resolved. This inventory distinguishes content read, directory metadata, and uninspected material.
 
-## Inspected sources
+## Coverage
 
-| File / original location | Type and purpose | Implementation / result evidence | Duplicates existing GitHub? | Publication decision | Destination |
-|---|---|---|---|---|---|
-| G1: README.md | Markdown; preliminary qualitative benchmark | Documentation, comparisons, links, acknowledgements | Already tracked | Preserve all original text as historical content; add accurate research navigation | README.md |
-| G1: notebooks/CogVideoX.ipynb | Colab; image-to-video exploration | Actual generation code and stored outputs | Already tracked | Preserve bytes; external asset rights not re-cleared | Same path |
-| G1: notebooks/DynamiCraft.ipynb | Colab; diffusion exploration | Actual setup/inference/training invocations and stored failures | Already tracked | Preserve bytes; document limitations | Same path |
-| G1: notebooks/Text2Video.ipynb | Colab; CLIP/CycleGAN exploration | Actual code; no stored run outputs | Already tracked | Preserve bytes; flag provenance and token-like URL review | Same path |
-| G1: notebooks/first_order_model.ipynb | Colab; image animation demo | Actual code; no stored run outputs | Already tracked | Preserve bytes; inherited demo licensing review remains | Same path |
-| G1: notebooks/vid2vid.ipynb | Colab; generic vid2vid demo | Actual commands; no stored run outputs | Already tracked | Preserve bytes; document legacy dependencies | Same path |
-| G1: results/video.md | Markdown, one newline | No experimental results or demo links | Already tracked | Preserve bytes | Same path |
-| P1: supplied ClassLab-named PDF | Nine-page manuscript; methods, tables, figures | Documentation and aggregate reported results, not run logs | Partial conceptual overlap with benchmark; not same file | Summarize methods and aggregate facts; withhold PDF and identifiable images | docs/, CSV, aggregate charts, references/ |
-| T1: Pasted text(4).txt | Owner's task instructions | Scope only | No | Do not publish the instruction attachment | Informs release scope |
-| A1: owner frame-level clarification | Conversation statement | Metric-definition context, not recovered evaluator | No | Attribute as author clarification | README, results, discrepancies |
-| B1–B3: bibliographic sources | Public institutional/index/program records | Citation evidence, not methods verification | No | Link and cite, with access limitations | references/README.md, paper.bib |
+The shared root and research subdirectories were traversed to locate implementation, configurations, manifests, logs and results. The bounded inventory contains **5,417 observed items** and **365 listed folders**. Raw-frame subtrees, third-party dataset/weight subtrees and other media assets were not exhaustively expanded or content-inspected (**1,786 observed asset folders remain unexpanded**). This is not a claim to have read every file in the shared drive.
 
-Original byte hashes are recorded in [benchmark_integrity.json](../references/benchmark_integrity.json). P1's filename and checksum are in the [source register](../references/README.md).
+The `NVAITC-NIE SDG Project Materials` entry is a shortcut. Its target could not be fetched (403), and an exact-name folder search returned no accessible target. Its contents remain uninspected. Native Google Docs were read as text; embedded images and visual tables were not fully extracted. Large model archives and student media were not downloaded.
 
-## Requested Drive sources: inaccessible, not inventoried recursively
+No private root URL, Drive file ID, student-media filename, participant list or internal document body is published. Duplicate folder names were tracked by Drive ID during the private inventory so that empty/nonempty baseline folders were not conflated.
 
-The supplied root folder could not be read through the available retrieval route. Plugin discovery reported Google Drive not installed/connected; no authorized connected Drive file listing or owner-provided local export was available in this task. These are **requested categories from T1**, not observed directories or verified file contents. The private root link is omitted from public documentation.
+## Content-level sources
 
-| Requested location | Intended research purpose | Actual file types/content | Duplicate/implementation/result status | Publication decision / future destination |
+| Source / original location | Type / purpose | Evidence and duplication | Publication decision | Destination |
 |---|---|---|---|---|
-| Documentation | Protocols, prompts, notes | Unknown; uninspected | Unknown | Review sanitized documentation before docs/ integration |
-| Experiment | Training, evaluation, logs, predictions | Unknown; uninspected | Unknown | Recover genuine code/results; no folder scaffold created yet |
-| NVAITC-NIE SDG Project Materials | Collaboration/generation materials | Unknown; uninspected | Unknown | Ownership and confidentiality review before any import |
-| Papers | Manuscript versions/references | Unknown; uninspected | Unknown | Establish version and redistribution rights |
-| Forms | Consent / study forms | Unknown; uninspected | Unknown | Do not publish originals |
-| SDG Ethics | Ethics and data-sharing constraints | Unknown; uninspected | Unknown | Do not publish originals; owner-approved summary only |
+| Original README, five `notebooks/*.ipynb`, `results/video.md` | Existing benchmark | Full static source/output audit; already tracked | Preserve bytes and original README block | Original paths |
+| Supplied nine-page paper (P1) | Manuscript | Methods, tables, figures; not an execution log | Summarize; withhold PDF and identifiable examples | Research docs and paper CSV/charts |
+| `Experiment/slowfast.ipynb` | 97-cell research notebook | Actual three-class source and saved outputs; new to this repo; 38 function/class definitions match public SynthDa ASTs | Strip outputs/user metadata/private path roots; retain research logic and license | `action_recognition/notebooks/slowfast_research.ipynb` |
+| `Documentation/Yufei/action recognition/slowfast.ipynb` | Earlier 90-cell notebook | Separate exploratory version; inspected settings use two classes and one epoch | Reference as earlier work; do not merge settings with three-class experiments | Inventory / version boundary |
+| `Documentation/Yufei/Synthda.ipynb` | 29-cell notebook | Actual framework setup, reconstruction/rendering commands and sample integration | Reference; do not copy asset links or private output | Video-generation guide |
+| `Documentation/Yufei/synthda_loop_noCV.ipynb` | 155-cell notebook | Generation/optimization prototype, sample metrics, fall examples and TODOs | Reference; no claim of completed laboratory optimization result | Video-generation guide |
+| `Experiment/action recognition/**/predictions_test.csv` | Eight CSV exports | All 23,040 scored rows compared; no video/window IDs; no duplicate result versions collapsed | Release aggregate class/prediction counts only | `experiments/recovered/` |
+| Adjacent `class_accuracy_test.csv`, `top1_accuracy_test.csv`, `confusion_test.csv` | Summary CSVs | Eight class and Top-1 reports reconcile with prediction-derived values; confusion files inspected | Release derived aggregates with hashes | Result audit / provenance |
+| `Experiment/action recognition/**/args.json` | Ten JSON files | Saved numeric/model settings; camera's undated evaluation lacks adjacent arguments | Remove all private paths | `action_recognition/configs/recovered_configs.json` |
+| `Experiment/action recognition/*/training_data/video_info.csv` | Eight files, seven distinct hashes | Current memberships/counts; camera duplicate files are byte-identical; not unique-media proof | Aggregate fold counts and basename-collision totals only | `dataset_summary.csv` |
+| Six `test.tsv` and six `test_predicted_boxes.csv` files | Frame lists / annotations | 21 videos and 3,285 frame labels per annotation file; source sampler arithmetic gives 2,880 scored rows | Original paths/IDs withheld | Evaluation audit |
+| `Experiment/action recognition/**/logs/events.out.*` | Thirteen TensorBoard files | Stored scalar fields and validation-step coverage; restarts/partial logs exist | Coverage summary only; host/file names withheld | `training_log_summary.csv` |
+| Research Journal and Yufei Weekly Updates | Native Docs | Text read; chronology of reconstruction trials and limitations; image examples not reproduced | Technical summary only | Pipeline and overview docs |
+| Experiments Procedure and Plan for IEEE PacificViz | Native Doc | Text/table values read; matches paper aggregate table but contains older 20-video/two-class wording | Source cross-check only; original internal document withheld | Methods / discrepancy audit |
+| Forms data-management document | Word template/plan | Relevant ownership/access/sharing sections read; not proof of signed participant release | Withhold original | Privacy decision |
+| SDG Ethics research document | Native Doc | Relevant consent, secondary-use and re-identification questions read; not completed privacy validation | Withhold original and research/interview material | Privacy decision |
+| NVIDIA SynthDa license and two public notebooks | Public upstream sources | License terms read; function/class provenance compared; upstream loop is not identical to local extended notebook | License copy + attribution; upstream links | `references/`, model/pipeline guides |
 
-A complete filename/location/type inventory, deduplication check, privacy review and paper-versus-log reconciliation remains blocked until those materials are accessible. No existence or implementation detail is inferred from these labels.
+The exact 63 numeric/config/manifest source files are listed with hashes and source locations in [drive_evidence.json](../references/drive_evidence.json). Sources have not been inferred from paper values. The [notebook transformation manifest](../references/recovered_notebook_integrity.json) records every original/published cell hash. Original benchmark hashes remain in [benchmark_integrity.json](../references/benchmark_integrity.json).
 
-## Major additions and their sources
+## Metadata-only and release-review material
 
-| Addition | Sources |
-|---|---|
-| Research overview and contribution boundaries | P1 Sections I, III and V; G1 |
-| Methodology and dataset account | P1 Figure 1, Tables II–VI and Section III |
-| Experiment register, result CSV and figures | P1 IV-B, Tables V–VIII; A1 for frame clarification |
-| Discrepancies | Direct comparisons within P1, static G1 inspection, arithmetic diagnostics; no Drive-log comparison |
-| Reproducibility and benchmark audit | Actual G1 notebook cells; missing-code distinction; executed new utility checks |
-| Privacy/release decisions | Identifiable P1 examples, T1 restrictions, static G1 review |
-| New audit/plot/check utilities | Newly written documentation tooling; not original research implementation |
-| Citation | P1 title/authors, B1–B3 bibliographic corroboration |
+| Area | Observed material | Review/publication decision |
+|---|---|---|
+| Documentation reconstruction folders | MotionFix, TailorNet, Projection, VideoPose3D, StridedTransformer, HuMoR, joints2smpl notebooks, scripts, outputs and model assets | Inventoried; most source contents not audited. Do not assign these exact versions to final paper runs without lineage |
+| Collaborator modifications | Animation, fitting, plotting and TailorNet scripts | No copying without file-level provenance/license review |
+| Experiment media | Action/factor folders, raw videos, generated images/videos, extracted frames | Metadata only; no public media release |
+| Checkpoint folders | Saved accuracy/loss/F1 weight files, including four-factor run | Metadata only; binaries not loaded or published; no checkpoint hashes claimed |
+| Papers | Related synthetic-human-action framework PDF | Metadata only; not copied or treated as this paper's implementation evidence |
+| Forms and SDG Ethics | Consent/recruitment material, internal proposals, journals, literature, interview materials | Originals private; participant/candidate lists not content-inspected |
+| Project Materials shortcut | Inaccessible target | Explicit unresolved coverage gap |
+
+## Source-to-addition mapping
+
+The paper supplies the intended design and immutable paper table. The three-class notebook supplies the recovered implementation. Prediction/summary exports supply recomputed numerical aggregates. Manifests and configs supply actual version differences. Logs supply recorded validation-step coverage only. Journals and prototype notebooks supply the generation history. New audit/plot/test scripts are authored for this repository update, not represented as recovered research code.

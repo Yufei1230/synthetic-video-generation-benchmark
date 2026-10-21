@@ -12,8 +12,8 @@ The available study concerns video synthesis and action recognition. It does not
 2. **Construct appearance variants.** The paper describes first-frame editing in Google AI Studio followed by Kling animation, varying background, clothing, or hairstyle.
 3. **Construct viewpoint variants.** The paper describes SynthDa mesh reconstruction and multi-view rendering, including a lower-body completion workaround for upper-body inputs.
 4. **Assemble augmentation conditions.** Keep 90 real training videos and add one or several synthetic factor pools.
-5. **Compare action recognition.** The paper specifies SlowFast, 16 sampled frames, 50 epochs, learning rate 0.001, and cross-entropy loss. Exact source code and configuration are unavailable in the inspected repository.
-6. **Interpret aggregate results.** Compare Top-1 and class-specific accuracy, with the author's frame-level clarification and unresolved evaluation details kept visible.
+5. **Compare action recognition.** Recovered code uses pretrained PyTorchVideo SlowFast R50, 32 fast-path frames and Adam. The paper says 16 frames; the difference is documented rather than hidden.
+6. **Reconcile evidence.** Recompute eight saved prediction exports, keep paper values separate, and document conflicting versions, split concerns and correlated sampled-frame scoring.
 
 ## Contribution boundaries
 
@@ -22,8 +22,8 @@ The available study concerns video synthesis and action recognition. It does not
 | Research design and integration | The paper's authors report adapting existing generation tools to laboratory actions and evaluating augmentation factors | Sole authorship of every component or an independently novel backbone |
 | Benchmark exploration | Existing notebooks and qualitative comparison are in this repository | A common runtime/quality metric or independent reproduction in this audit |
 | Image generation | Application of Google AI Studio and Kling to controlled appearance edits | A locally implemented generative model or recovered batch-generation service |
-| Video generation | Use/adaptation of SynthDa for multi-view human representations, as described in P1 | Ownership of SynthDa or identification of the exact pose/mesh implementation from code |
-| Recognition | Controlled experiments using a paper-described SlowFast model | Exact model variant, optimizer, pretraining, or production deployment |
+| Video generation | Use/adaptation of SynthDa for multi-view human representations, as described in P1 | Ownership of SynthDa or complete source-to-render lineage for the final selected clips |
+| Recognition | Original three-class notebook and saved SlowFast configuration/results, with substantial upstream helper reuse | New recognition architecture, leakage-free evaluation, or production deployment |
 
 Individual contributions beyond the paper's author list require collaborator confirmation. Frameworks, pretrained weights, demos, and generation services retain their own ownership and terms.
 

@@ -244,10 +244,10 @@ L 649.933632 104.832
    <text style="font-size: 10.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #536171" x="43.2" y="80.64" transform="rotate(-0 43.2 80.64)">90 real + 60 synthetic training videos per single factor.</text>
   </g>
   <g id="text_21">
-   <text style="font-size: 9.7px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #233446" x="43.2" y="360.864" transform="rotate(-0 43.2 360.864)">Dashed line: real-only baseline (77.78%). Frame-level accuracy: author clarification; code unverified.</text>
+   <text style="font-size: 9.7px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #233446" x="43.2" y="360.864" transform="rotate(-0 43.2 360.864)">Dashed line: real-only baseline (77.78%). Paper-reported rates; saved records are audited separately.</text>
   </g>
   <g id="text_22">
-   <text style="font-size: 9.7px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #536171" x="43.2" y="381.024" transform="rotate(-0 43.2 381.024)">Source: supplied manuscript, Section IV-B and Table VII. Evaluation counts and uncertainty unavailable.</text>
+   <text style="font-size: 9.7px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #536171" x="43.2" y="381.024" transform="rotate(-0 43.2 381.024)">Source: supplied manuscript, Section IV-B and Table VII. See docs/DRIVE_AUDIT.md for counts and version differences.</text>
   </g>
  </g>
  <defs>

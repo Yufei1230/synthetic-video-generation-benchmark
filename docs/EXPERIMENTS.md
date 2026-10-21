@@ -1,6 +1,6 @@
 # Experiment register
 
-All rows are transcribed from [P1](../references/README.md), not recovered run directories. Shared reported protocol: 90 real training videos (30/action), SlowFast, 16 uniformly sampled frames/clip, 50 epochs, learning rate 0.001, cross-entropy, and a fixed real evaluation set described as 21 videos. The author specifies frame-level accuracy; the evaluation implementation is missing.
+The table below preserves the paper's intended design and reported results. It is not a substitute for the original run records. The paper specifies 90 real development videos, 60 synthetic videos per factor, SlowFast, 16 sampled frames and 21 real test videos. Recovered code/configs instead use 32 fast-path frames, an 80/20 development split, and several historical data versions. [Full reconciliation](DRIVE_AUDIT.md).
 
 | Experiment | Real + synthetic training videos | Top-1 (%) | Change (pp) |
 |---|---:|---:|---:|
@@ -17,7 +17,7 @@ All rows are transcribed from [P1](../references/README.md), not recovered run d
 
 | ID | Question | Added data and generation method | Paper-reported observation | Main limitation |
 |---|---|---|---|---|
-| baseline | What performance is reported using only real training data? | None | 77.78% overall; buretting lowest at 63.64% | Split membership and selected checkpoint unavailable |
+| baseline | What performance is reported using only real training data? | None | 77.78% overall; buretting lowest at 63.64% | Filename-level split manifest recovered; media ancestry and exact checkpoint pairing unverified |
 | aug_a | Does viewpoint diversity help? | 60 SynthDa camera renders | 57.78%; buretting 27.27% | Geometry/rendering changes are bundled with viewpoint |
 | aug_b | Does clothing diversity help? | 60 Google AI Studio + Kling clips | 93.33%; shaking/swirl 100% | No repeated-run uncertainty; service settings unavailable |
 | aug_c | Does background diversity help? | 60 Google AI Studio + Kling clips | 88.89%; buretting 95.45%, swirling 72.41% | Overall improvement conceals a class-specific decline |
@@ -28,11 +28,11 @@ All rows are transcribed from [P1](../references/README.md), not recovered run d
 
 The 40/60/80 “Synthetic Clips” in P1 Table VIII are **per action**, as explained in Section IV-D. They are not the total numbers of synthetic training clips.
 
-## Run evidence required
+## Recovered run evidence
 
-No condition currently has an inspectable run ID, training log, evaluation script, selected checkpoint hash, per-frame predictions, seed, or dataset manifest in the recovered materials. The same evaluation conditions are asserted by the paper but are not independently verified. A validation split is not specified. This applies to every row above.
+Eight original prediction exports are now available for private audit; public aggregate counts and source hashes are in [experiments/recovered](../experiments/recovered/README.md). Five conditions corroborate the paper's overall and class rates. Camera and two-factor results differ; three-factor has two versions; four-factor has no recovered prediction export. Ten argument files and thirteen event files add configuration and training-history evidence. None is an independent model rerun.
 
-The [CSV](../experiments/paper_reported_results.csv) contains aggregate paper values only. No per-example predictions or run histories have been fabricated. Use a separate source/version when original experiment logs become available; do not overwrite this transcription to hide disagreements.
+Keep the [paper CSV](../experiments/paper_reported_results.csv) and [recovered result CSV](../experiments/recovered/results.csv) separate. The original paper table above remains an exact transcription. Selected checkpoint hashes and complete source-video ancestry are still missing.
 
 ## Needed controls before stronger claims
 

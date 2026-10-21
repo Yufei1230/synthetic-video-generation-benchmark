@@ -1,32 +1,32 @@
 # Data privacy and publication review
 
-This is a repository release-boundary record, not legal advice or evidence of institutional clearance. The research context includes student laboratory recordings and collaborator materials. A research-use permission is not automatically permission for public GitHub redistribution or upload to a generation service.
+Research access to student recordings and collaborator material does not itself authorize public redistribution. This release records decisions for the repository; it does not assert institutional clearance or a demonstrated privacy guarantee.
 
-## What this update includes
+## Included in this update
 
-New explanatory Markdown, aggregate paper-reported numbers, charts regenerated from those numbers, bibliographic references, and small original documentation-audit utilities. No raw/edited student video, identifiable still image, school document, consent form, ethics document, model checkpoint, or manuscript PDF is added.
+Public additions are explanatory documentation, paper-reported tables, aggregate recovered confusion/result counts, numeric configurations without data paths, provenance hashes, figures, audit utilities, and one sanitized historical recognition notebook with attribution/license. No student/video/frame identifier is included in released result tables.
 
-The original benchmark notebooks and stored outputs remain unchanged. Their historical public presence does not establish rights clearance; see the [benchmark audit](BENCHMARK_AUDIT.md). A pre-existing token-like external download URL in Text2Video cell 5 and old temporary service URLs merit owner review without reproducing their contents in new documentation.
+The new notebook removes all stored outputs, execution counts and Colab user metadata, and replaces private shared-drive roots. Its original code logic remains visible, including known defects. The five pre-existing benchmark notebooks are unchanged as requested; inherited token-like links and old temporary URLs remain a separate owner-review issue in the [benchmark audit](BENCHMARK_AUDIT.md).
 
-## Materials withheld or awaiting review
+## Inspected privacy context
 
-| Material | Current decision | Evidence needed before publication |
+Relevant sections of a Forms data-management document and a native SDG Ethics research document were read privately. They discuss data ownership/access, consent and secondary uses, identifiable information and re-identification risk. Their presence is not evidence that public release of particular recordings, derivatives or participant images was authorized. Templates and research questions are not signed consent records or completed privacy tests. Internal document bodies and participant/candidate lists are not reproduced.
+
+## Withheld material and unresolved release decisions
+
+| Material | Decision | Before any later release |
 |---|---|---|
-| P1 example images (Tables III–IV) | Not copied; source page contains people and classroom context | Appropriate image/participant and publication permissions |
-| Supplied manuscript PDF | Not uploaded | Author/publisher redistribution terms and exact version |
-| Raw student recordings and derived frames | Not available in inspected checkout; do not add | Dataset ownership, explicit scope of consent and institutional approval |
-| Generated images/videos derived from real students | Not added; “synthetic” is not automatic anonymization | Identity/attribute review, source permission and generation-service terms |
-| Forms / SDG Ethics | Uninspected; originals must remain private | Owner review of any intended public summary |
-| Collaborator scripts and internal reports | Uninspected; no import | Owner authorization and content review |
-| Third-party frameworks, weights and model assets | Referenced, not vendored | Exact versions and each applicable license/asset terms |
-| Prompt/job logs and predictions | Not available | Remove credentials, signed links and personal identifiers; review source IDs |
+| Student recordings, extracted frames and identifiable paper illustrations | Not downloaded for this audit or published | Verify consent scope, ownership and institutional release approval |
+| Generated images/videos based on real people | Not published | Review retained identity, source ancestry, permission and service terms |
+| Manifests containing source paths/video names | Private originals; aggregate counts only | Use an authorized private media/subject audit; do not expose identifiers |
+| Raw prediction sequences | Private originals; public aggregate counts only | Review source-linkability before any per-example release |
+| Checkpoint/model/body-mesh assets | Metadata only; not loaded or uploaded | Asset license, data rights, appropriate model/privacy review |
+| Internal forms, ethics proposals, notes, interview lists and unpublished collaborator papers | Not published | Explicit owner and applicable participant/publication approval |
+| Collaborator scripts | Referenced/inventoried rather than copied | File-level ownership and applicable license |
+| Supplied manuscript PDF | Not uploaded | Author/publisher version and redistribution terms |
 
-The supplied Drive link is not republished. Named folder categories in the source inventory come from the owner's task description and do not claim verified contents.
+The new recovered recognition notebook's substantial upstream reuse is covered by the included [NVIDIA SynthDa license and attribution](../references/THIRD_PARTY_NOTICES.md). That license does not establish rights to school data or external models. No blanket license is assigned to the entire repository.
 
-## Before integrating a later export
+## Remaining research risks
 
-Check source ancestry and public-sharing permission separately. Keep student/participant identifiers and private paths out of public manifests; sanitized stable identifiers may support a private leakage audit. Review notebook cell source, outputs, HTML/widget data, metadata, logs, archives, filenames and Git history for accidental disclosure. Verify media ownership before using representative examples. Do not assume a global license covers externally downloaded weights or data.
-
-## Claims kept within evidence
-
-Synthetic augmentation can reduce reliance on collecting additional recordings; it does not by itself prove anonymity. No quantitative privacy attack, leakage audit, fairness evaluation, field deployment, educational outcome study or safety validation was recovered. Privacy-preserving deployment and automated visibility checks remain possible future work unless supporting implementation/evaluation is supplied.
+Four class+basename development/test collisions in each recovered manifest need investigation; filenames alone cannot prove leakage or its absence. Student/session and generated-parent groupings are still missing. Synthetic appearance changes are not evidence of anonymity. No completed re-identification attack, fairness evaluation, field deployment, educational-outcome study or safety validation was recovered.

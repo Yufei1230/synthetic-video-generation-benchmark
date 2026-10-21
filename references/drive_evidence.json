@@ -1,0 +1,566 @@
+{
+  "audit_date": "2026-10-21",
+  "scope": "Numeric research evidence only. Source URLs and file IDs omitted. Source directory names do not prove run lineage.",
+  "files": [
+    {
+      "source_location": "Experiment/action recognition/camera_clothes_background2/training_data/video_info.csv",
+      "sha256": "d8b550af94615dc1770b9166ae9d17a92658d9976e155079992418e3a61c6894",
+      "bytes": 73283,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/camera_clothes/training_data/video_info.csv",
+      "sha256": "279baf327041f8402b540a5aadd5667b1305bf8097e6559d9e7c47f797ce6625",
+      "bytes": 59204,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/camera_angle/training_data/video_info.csv",
+      "sha256": "0586cc279c26344cc95937018fbfc70157e22b81b4afe02046258b1457bfb576",
+      "bytes": 49229,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/camera_angle/training_data/video_info.csv",
+      "sha256": "0586cc279c26344cc95937018fbfc70157e22b81b4afe02046258b1457bfb576",
+      "bytes": 49229,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/clothes/training_data/video_info.csv",
+      "sha256": "916ec0f6ff07e1f28b05681ebc9645a3d5d6a04e04317a2143d9cbda4b560f7b",
+      "bytes": 27328,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/hairstyle/training_data/video_info.csv",
+      "sha256": "90d3e7258d70774941dce5841e8dd47393415983779850863b1cca873f73ff9b",
+      "bytes": 27628,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/background/training_data/video_info.csv",
+      "sha256": "63044ef7f7fdb974ccf7cac3162e57297623aa59f0e60610e0a581f12fa0a9ca",
+      "bytes": 27928,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/baseline/training_data/video_info.csv",
+      "sha256": "001f359575dbf7a0cb6737ae7ec3ab7ec79ab8501d7e8d4bf6f211e311e759f3",
+      "bytes": 18289,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/camera_clothes_background/checkpoint/10-21-2025-16-01-50/args.json",
+      "sha256": "a0cdd38b47cd9bd103db4d8f7392d7c13aadafb7fe45df1c28c10b9aed69f129",
+      "bytes": 1571,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/camera_clothes_background2/training_data/annotations/test_predicted_boxes.csv",
+      "sha256": "c726a1baae982757db38152bb99468b079424d6ec92cb33b36d668b4623cecc7",
+      "bytes": 89993,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/camera_clothes_background2/training_data/frame_lists/test.tsv",
+      "sha256": "12b61948440ea937544ca50f6286ef91e7ae30a26d0bdedea44fdb2809ee9e09",
+      "bytes": 61234,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/camera_clothes_background2/checkpoint/10-15-2025-21-08-53/args.json",
+      "sha256": "ed1c1a3604f47c1ce37b48bcb827d665bbb3278480f57ee3d834ae087ecf904e",
+      "bytes": 2021,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/camera_clothes_background_hairsytle/checkpoint/10-21-2025-17-30-42/args.json",
+      "sha256": "9bc77a963207150073153e14207f4ddcf4b7fbde9320267613ff818e81d31da5",
+      "bytes": 1661,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/camera_clothes/training_data/annotations/test_predicted_boxes.csv",
+      "sha256": "264da7cffb79fe9db3a0e6f6c3074a2de49188a76bf58a0e6c99e1753bd149b1",
+      "bytes": 89993,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/camera_clothes/training_data/frame_lists/test.tsv",
+      "sha256": "ed2cd2bf23acfd8e357de6f20c2e1e3052a9fe7b501b5ff36f7f96be027ad862",
+      "bytes": 61234,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/camera_clothes/checkpoint/10-15-2025-07-10-07/args.json",
+      "sha256": "5f1554a3e1b4068187c697549f36415728bd285a64aee52e952930a96d035cff",
+      "bytes": 1922,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/camera_angle/checkpoint/saved_models/confusion_test.csv",
+      "sha256": "d82e3d628ec268bb7b371fbeb1f762b500143528399eb20418aa88ed5ea2d85e",
+      "bytes": 46,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/camera_angle/checkpoint/model_evaluation/confusion_test.csv",
+      "sha256": "d82e3d628ec268bb7b371fbeb1f762b500143528399eb20418aa88ed5ea2d85e",
+      "bytes": 46,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/camera_angle/checkpoint/model_evaluation/top1_accuracy_test.csv",
+      "sha256": "46bbcde43464bd9162d83f32572f845dc2665275db5ad5b4304f99b47e31bc08",
+      "bytes": 33,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/camera_angle/checkpoint/model_evaluation/predictions_test.csv",
+      "sha256": "ad19a2406cbb8cd3db82ba2dd9a6b0987718c1ed98cff7e1c33624f6d2a44a00",
+      "bytes": 37528,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/camera_angle/checkpoint/model_evaluation/class_accuracy_test.csv",
+      "sha256": "bfaeb790ab656cb83e24f49fbd0c7bc4d9357ce8e174b5d6fd5127913f50757d",
+      "bytes": 224,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/clothes/training_data/annotations/test_predicted_boxes.csv",
+      "sha256": "16ef436ad1612e536723f7bbdb4bf6cfce223ec2d1e1d1b3158e6b68fce1b3cd",
+      "bytes": 89993,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/clothes/training_data/frame_lists/test.tsv",
+      "sha256": "faf3aaec7db74b486a21cf4e16e5792d85ce83750e3e7f69b013430dbce30ba0",
+      "bytes": 61234,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/clothes/checkpoint/10-13-2025-07-13-54/args.json",
+      "sha256": "7d8e0a52bc24b57fdba5dbd3e96fd945c801ee288868577b8bb413136dad078c",
+      "bytes": 1859,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/hairstyle/training_data/annotations/test_predicted_boxes.csv",
+      "sha256": "b3c2bbdd87b1c82459978532ca2d89a0abe40f7c58b2755bb02fba1675b1eb27",
+      "bytes": 89993,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/hairstyle/training_data/frame_lists/test.tsv",
+      "sha256": "0b8d09732df4b33e5c61e00dd2dd76e476c03d6089c009827d8bb81489e6a118",
+      "bytes": 61234,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/hairstyle/checkpoint/10-13-2025-18-36-40/args.json",
+      "sha256": "fecadb8a0b93e278f27caff3527684660a20600eba782254726159d36b53130f",
+      "bytes": 1877,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/background/training_data/annotations/test_predicted_boxes.csv",
+      "sha256": "16ef436ad1612e536723f7bbdb4bf6cfce223ec2d1e1d1b3158e6b68fce1b3cd",
+      "bytes": 89993,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/background/training_data/frame_lists/test.tsv",
+      "sha256": "faf3aaec7db74b486a21cf4e16e5792d85ce83750e3e7f69b013430dbce30ba0",
+      "bytes": 61234,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/background/checkpoint/10-12-2025-17-19-15/args.json",
+      "sha256": "8e216dd0aa6ce287c09397a9764caf98cc71677157bfafd206fb1544c8851fa2",
+      "bytes": 1895,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/baseline/training_data/annotations/test_predicted_boxes.csv",
+      "sha256": "ca1b4f4360728ee526e9a78ecd8711c4b45115c9ec7388e89a996f44d7ac9880",
+      "bytes": 88243,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/baseline/training_data/frame_lists/test.tsv",
+      "sha256": "3d7049d12c43d9327e2f72b5c6cc5aea8baebd231f7953a15e1a63c3b7bccfd7",
+      "bytes": 57734,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/baseline/checkpoint/10-12-2025-16-58-30/args.json",
+      "sha256": "72e287109b9b6af9945c47c458467a32ba727cb135838ee8f10dc0b8f9e55743",
+      "bytes": 1868,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/baseline/checkpoint/10-12-2025-07-55-58/args.json",
+      "sha256": "1263b2209b3da269bf68aad443248248555475aa463e3096154323127f4efb03",
+      "bytes": 1868,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/baseline/checkpoint/10-12-2025-07-36-09/args.json",
+      "sha256": "6b9d315c99cdd0895c1e28a197445dee2a886497e9544cc1a849030ee89cba03",
+      "bytes": 1868,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/camera_clothes_background/checkpoint/10-21-2025-16-01-50/model_evaluation/class_accuracy_test.csv",
+      "sha256": "4da362f2480cae0e9de4c4cececd2458dbcf753df5099679011370d57805420b",
+      "bytes": 221,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/camera_clothes_background/checkpoint/10-21-2025-16-01-50/model_evaluation/confusion_test.csv",
+      "sha256": "4d7544f49a7773b37358c989c16666e483d2a2741f206656d53aa09abc79a5be",
+      "bytes": 45,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/camera_clothes_background/checkpoint/10-21-2025-16-01-50/model_evaluation/predictions_test.csv",
+      "sha256": "4aab5db06a4ce2ab5eba996cb98599c9453b0188262020a04ac4df606539bf9b",
+      "bytes": 35096,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/camera_clothes_background/checkpoint/10-21-2025-16-01-50/model_evaluation/top1_accuracy_test.csv",
+      "sha256": "336a0432719196cbc7fd4e998798a2fbbb207a67633f845f9d15a9deeb6d620b",
+      "bytes": 33,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/camera_clothes_background2/checkpoint/10-15-2025-21-08-53/model_evaluation/confusion_test.csv",
+      "sha256": "ad486d1c078493657a4b3248d539ae1dac89f5facced301e7844fa922a44387d",
+      "bytes": 48,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/camera_clothes_background2/checkpoint/10-15-2025-21-08-53/model_evaluation/top1_accuracy_test.csv",
+      "sha256": "5659a73609d3e4257c873414810067f1c775ad17948d6c25dbd0e3ab527178ce",
+      "bytes": 33,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/camera_clothes_background2/checkpoint/10-15-2025-21-08-53/model_evaluation/class_accuracy_test.csv",
+      "sha256": "129cd911732dc9f337a6333e986869abca1013bb937db97bc5a117635f16c192",
+      "bytes": 224,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/camera_clothes_background2/checkpoint/10-15-2025-21-08-53/model_evaluation/predictions_test.csv",
+      "sha256": "84ec5ced1003c50b877767d5869b82400904c1fb2507770d587ca3d51d38a2d7",
+      "bytes": 36376,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/camera_clothes/checkpoint/10-15-2025-07-10-07/model_evaluation/confusion_test.csv",
+      "sha256": "624e45b5066f6fa262e026bef23c175ebf6d2fe626ba3910889aac112b1f1794",
+      "bytes": 47,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/camera_clothes/checkpoint/10-15-2025-07-10-07/model_evaluation/top1_accuracy_test.csv",
+      "sha256": "32b77a86323af2867cbf142be3916a49256ab42aac7283457f92aba0d478d102",
+      "bytes": 18,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/camera_clothes/checkpoint/10-15-2025-07-10-07/model_evaluation/class_accuracy_test.csv",
+      "sha256": "9809a0e4af074ec29b1e05b68b8dd3e4314b80b6a2a6a78ec9ae643be205fe40",
+      "bytes": 222,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/camera_clothes/checkpoint/10-15-2025-07-10-07/model_evaluation/predictions_test.csv",
+      "sha256": "67d860ea09d5f88f3d9757f53ee6a3ba2be678c3c9b76b1654eff59a822d86c2",
+      "bytes": 35736,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/clothes/checkpoint/10-13-2025-07-13-54/model_evaluation/confusion_test.csv",
+      "sha256": "cc47f9d70bd10e2ec6ab8599bddad78918b8a1880633a9681919f50fa7fd93c0",
+      "bytes": 44,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/clothes/checkpoint/10-13-2025-07-13-54/model_evaluation/top1_accuracy_test.csv",
+      "sha256": "86cfef04da64109d21a5970b3252228e3aa2358c0e6eb1aa9ff490c5ec0d50a9",
+      "bytes": 33,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/clothes/checkpoint/10-13-2025-07-13-54/model_evaluation/class_accuracy_test.csv",
+      "sha256": "cb8aa683ab5f110dc8cb5203e40b0f40e722579f675c36bd9a8924947dd654a8",
+      "bytes": 219,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/clothes/checkpoint/10-13-2025-07-13-54/model_evaluation/predictions_test.csv",
+      "sha256": "28047c54dd34b825574c58d069b83b07a9576eef362357609f0804df579b106a",
+      "bytes": 34968,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/hairstyle/checkpoint/10-13-2025-18-36-40/model_evaluation/confusion_test.csv",
+      "sha256": "bb8c035824e685498810eae89be96646dade0b0756e6ac8f1133c48d0b25e94b",
+      "bytes": 44,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/hairstyle/checkpoint/10-13-2025-18-36-40/model_evaluation/top1_accuracy_test.csv",
+      "sha256": "3f64f5af74f7a47c9c03b5030a441d63d3c749c620bebe1c381894a579ebdfef",
+      "bytes": 33,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/hairstyle/checkpoint/10-13-2025-18-36-40/model_evaluation/class_accuracy_test.csv",
+      "sha256": "8d7ee98e5718aeb40cd23da8689a028c933926a01eeccae1e8206cd6e3c731bc",
+      "bytes": 218,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/hairstyle/checkpoint/10-13-2025-18-36-40/model_evaluation/predictions_test.csv",
+      "sha256": "5e5207429f2de98a0f73da623ffee8a0ca925c14decaa4eabfe7457e9fd531f3",
+      "bytes": 34840,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/background/checkpoint/10-12-2025-17-19-15/model_evaluation/confusion_test.csv",
+      "sha256": "1e75c0b99be551e7839975bf2109a8237a2d755e423d3215759f454a039bcd11",
+      "bytes": 47,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/background/checkpoint/10-12-2025-17-19-15/model_evaluation/top1_accuracy_test.csv",
+      "sha256": "d79c6adc4d94ec7f55a45a6937d4a82b752355bb0e82203485fda7dae3fdb319",
+      "bytes": 33,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/background/checkpoint/10-12-2025-17-19-15/model_evaluation/class_accuracy_test.csv",
+      "sha256": "380e22edc182b6e2214220e2027b7e5a4d78d638284769b3c94079bdb4124e45",
+      "bytes": 222,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/background/checkpoint/10-12-2025-17-19-15/model_evaluation/predictions_test.csv",
+      "sha256": "4d8c87700603368cec2883a2fa910c6091f6b4aabd669aadfe843d6139beb2ba",
+      "bytes": 35224,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/baseline/checkpoint/10-12-2025-07-55-58/model_evaluation/confusion_test.csv",
+      "sha256": "21dfcecda402180062a0a196dfc634ba5d9c07ac6094a9438cb04c2ba85e2fcc",
+      "bytes": 47,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/baseline/checkpoint/10-12-2025-07-55-58/model_evaluation/top1_accuracy_test.csv",
+      "sha256": "f86bd4498af0640eb48fddf8d4066517a879f71240b74b9d0c202411e773c167",
+      "bytes": 33,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/baseline/checkpoint/10-12-2025-07-55-58/model_evaluation/class_accuracy_test.csv",
+      "sha256": "6326df4a1e6fe9a7f1f145d9f8a3ed66164055487ee290f09e6d34bcfaa4307e",
+      "bytes": 223,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/baseline/checkpoint/10-12-2025-07-55-58/model_evaluation/predictions_test.csv",
+      "sha256": "7487e6d1457c3b9160897841e9d6e22526929186da47a29d826cb9dafaa10dd5",
+      "bytes": 35864,
+      "inspection": "content_read",
+      "publication": "aggregate_or_redacted_values_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/camera_clothes_background/checkpoint/10-21-2025-16-01-50/logs/[event record 1]",
+      "sha256": "005984e0715139775526fb23620632cdd2dee17f73ec514e381b170d21de6ac1",
+      "bytes": 8171,
+      "inspection": "stored_scalar_fields_read",
+      "publication": "validation_step_coverage_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/camera_clothes_background2/checkpoint/10-15-2025-21-08-53/logs/[event record 2]",
+      "sha256": "50f0bcff240d32a9b6f8e7f9c3307041d50760980e02c4974a486bbbfbb54f04",
+      "bytes": 7691,
+      "inspection": "stored_scalar_fields_read",
+      "publication": "validation_step_coverage_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/camera_clothes_background_hairsytle/checkpoint/10-21-2025-17-30-42/logs/[event record 3]",
+      "sha256": "18d881ca33106a0cbda7fe53a83a2657c1d8216963f82fc21afed48176875f97",
+      "bytes": 6985,
+      "inspection": "stored_scalar_fields_read",
+      "publication": "validation_step_coverage_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/camera_clothes/checkpoint/10-15-2025-07-10-07/logs/[event record 4]",
+      "sha256": "3868e32aad4efa0144451e2ff49cfe760d62e3701ef5c6f61f2a337f3fe0298f",
+      "bytes": 7634,
+      "inspection": "stored_scalar_fields_read",
+      "publication": "validation_step_coverage_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/camera_clothes/checkpoint/10-15-2025-07-10-07/logs/[event record 5]",
+      "sha256": "7bdf6e5296d54cd96d25b590aa11941ff0f673eb8711272010fed29b5b738f36",
+      "bytes": 543,
+      "inspection": "stored_scalar_fields_read",
+      "publication": "validation_step_coverage_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/clothes/checkpoint/10-13-2025-07-13-54/logs/[event record 6]",
+      "sha256": "3ba40d1fff3b5d93fedddb3a8771fdc9bcc86bb51fbdc64d7633047ed6a9a4bc",
+      "bytes": 12620,
+      "inspection": "stored_scalar_fields_read",
+      "publication": "validation_step_coverage_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/hairstyle/checkpoint/10-13-2025-18-36-40/logs/[event record 7]",
+      "sha256": "ec044f9a5e665931f7db6de7b9b45d2c5564e21c0084f7f596f8185c954e2991",
+      "bytes": 15905,
+      "inspection": "stored_scalar_fields_read",
+      "publication": "validation_step_coverage_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/background/checkpoint/10-12-2025-17-19-15/logs/[event record 8]",
+      "sha256": "325c3a71bf4397c81f9ec81a42ea9e4366fcc6d08d2331d504b46d828409fdd1",
+      "bytes": 15717,
+      "inspection": "stored_scalar_fields_read",
+      "publication": "validation_step_coverage_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/background/checkpoint/10-12-2025-17-19-15/logs/[event record 9]",
+      "sha256": "1fb20d08345ee9ff5185b9c0ce67bb2b44d666dfc3f10408534155c730d9bd70",
+      "bytes": 543,
+      "inspection": "stored_scalar_fields_read",
+      "publication": "validation_step_coverage_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/background/checkpoint/10-12-2025-17-19-15/logs/[event record 10]",
+      "sha256": "4836cb41a2e625c670a8920334e11791aace76b0c728166f4e478795689a2e07",
+      "bytes": 88,
+      "inspection": "stored_scalar_fields_read",
+      "publication": "validation_step_coverage_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/baseline/checkpoint/10-12-2025-16-58-30/logs/[event record 11]",
+      "sha256": "045e9545b1846a6e23e0770bfcf934efff36f7903ebfd5470434ae4649a02572",
+      "bytes": 88,
+      "inspection": "stored_scalar_fields_read",
+      "publication": "validation_step_coverage_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/baseline/checkpoint/10-12-2025-07-55-58/logs/[event record 12]",
+      "sha256": "384086ae9c2a517888fff2b25b7346079767425324a61ca5e93b885cc0bb941c",
+      "bytes": 19459,
+      "inspection": "stored_scalar_fields_read",
+      "publication": "validation_step_coverage_only"
+    },
+    {
+      "source_location": "Experiment/action recognition/baseline/checkpoint/10-12-2025-07-36-09/logs/[event record 13]",
+      "sha256": "7893307662c4a16c18e17e6dc8fa5f76d82d2e44888339765047dbd615d13748",
+      "bytes": 232,
+      "inspection": "stored_scalar_fields_read",
+      "publication": "validation_step_coverage_only"
+    },
+    {
+      "source_location": "Experiment/slowfast.ipynb",
+      "sha256": "34c633a659a87393147e8fa5b8054b27502d896fb0e6166c5136183f3e5c9793",
+      "bytes": 414655,
+      "inspection": "static_source_and_selected_stored_outputs_reviewed",
+      "publication": "sanitized_three_class_source_or_documented_reference"
+    },
+    {
+      "source_location": "Documentation/Yufei/action recognition/slowfast.ipynb",
+      "sha256": "4a3fd21f75d11c00510c9cf8071fcbebd77c8c7787f9612143712b32de8a8c2d",
+      "bytes": 360336,
+      "inspection": "static_source_and_selected_stored_outputs_reviewed",
+      "publication": "sanitized_three_class_source_or_documented_reference"
+    },
+    {
+      "source_location": "Documentation/Yufei/Synthda.ipynb",
+      "sha256": "4d2672c0b3f9bebd83cc40637caaf527d1410b265b33cc5715af6621a075544c",
+      "bytes": 82455,
+      "inspection": "static_source_and_selected_stored_outputs_reviewed",
+      "publication": "sanitized_three_class_source_or_documented_reference"
+    },
+    {
+      "source_location": "Documentation/Yufei/synthda_loop_noCV.ipynb",
+      "sha256": "0b6ba222d203406f04d4d36a3d6982944664128902cb349b7a96fa18255eac5e",
+      "bytes": 456829,
+      "inspection": "static_source_and_selected_stored_outputs_reviewed",
+      "publication": "sanitized_three_class_source_or_documented_reference"
+    }
+  ]
+}

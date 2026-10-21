@@ -229,10 +229,10 @@ L 678.730752 99.216
    <text style="font-size: 10.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #536171" x="43.2" y="76.32" transform="rotate(-0 43.2 76.32)">90 real + 120 / 180 / 240 synthetic videos; combination budgets differ.</text>
   </g>
   <g id="text_19">
-   <text style="font-size: 9.7px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #233446" x="43.2" y="341.532" transform="rotate(-0 43.2 341.532)">Dashed line: real-only baseline (77.78%). Frame-level accuracy: author clarification; code unverified.</text>
+   <text style="font-size: 9.7px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #233446" x="43.2" y="341.532" transform="rotate(-0 43.2 341.532)">Dashed line: real-only baseline (77.78%). Paper-reported rates; saved records are audited separately.</text>
   </g>
   <g id="text_20">
-   <text style="font-size: 9.7px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #536171" x="43.2" y="360.612" transform="rotate(-0 43.2 360.612)">Source: supplied manuscript, Section IV-B and Table VIII. Evaluation counts and uncertainty unavailable.</text>
+   <text style="font-size: 9.7px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #536171" x="43.2" y="360.612" transform="rotate(-0 43.2 360.612)">Source: supplied manuscript, Section IV-B and Table VIII. See docs/DRIVE_AUDIT.md for counts and version differences.</text>
   </g>
  </g>
  <defs>

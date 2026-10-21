@@ -1,57 +1,60 @@
 # Reproducibility
 
-## What can be reproduced now?
-
-| Component | Status | Scope |
+| Component | Status | Boundary |
 |---|---|---|
-| Result transcription and arithmetic audit | Executed locally | Reads paper-derived CSV, checks budgets, computes deltas and denominator compatibility |
-| Result charts | Executed locally | Matplotlib export from the CSV, with paper-reported labels |
-| Preservation / link checks and utility tests | Executed locally; see validation record | Protects original benchmark and documentation consistency |
-| Historical benchmark notebooks | Present, statically inspected, not rerun | Require Colab/CUDA, downloads, and their own dependencies |
-| Google AI Studio / Kling research generation | Paper description only; external services/manual prompt work | Exact versions, prompts, jobs and accepted outputs missing |
-| SynthDa reconstruction / rendering | Paper description only | Original scripts, model assets, licenses and renderer config missing |
-| SlowFast training / inference / metric evaluation | Missing implementation | No training, inference, or experimental reproduction claimed |
+| Paper table arithmetic and charts | Executed locally | Preserves the manuscript's values and intended budgets |
+| Eight prediction exports | Recomputed locally | All result flags, class totals and adjacent summary rates reconcile; no inference rerun |
+| Dataset manifest and sampler arithmetic | Audited locally | Seven distinct manifests; six test-annotation files reproduce scored-row counts; no media deduplication |
+| Recovered SlowFast source | Present, statically inspected | Actual research logic retained with known issues; no end-to-end run |
+| Saved settings and training logs | Read | Ten argument files, thirteen event files; incomplete checkpoint/source binding |
+| Historical generation benchmark | Preserved, statically inspected | Not rerun; external/legacy dependencies remain |
+| Image generation | Manual external-service workflow | Complete prompts, exact service versions and job records unavailable |
+| SynthDa integrations | Original notebooks inspected and upstream referenced | Dependencies/model assets and final rendering lineage incomplete |
 
-## Documentation environment
+## Run the public checks
 
-Tested with Python 3.12.14 and Matplotlib 3.10.8. The arithmetic, integrity checks and unit tests use only the Python standard library and target Python 3.10+. `requirements-docs.txt` pins the charting library tested here; it is **not** the environment for the research models.
-
-From the repository root:
+Python 3.10+; tested with Python 3.12.14. Audit and unit-test code uses only the standard library.
 
 ```bash
 python3 scripts/audit_results.py
+python3 scripts/audit_drive_results.py
 python3 scripts/verify_repository.py
 python3 -m unittest discover -s tests -v
+```
+
+To inspect an authorized private prediction export without publishing it:
+
+```bash
+python3 scripts/audit_drive_results.py --predictions /path/to/predictions_test.csv
+```
+
+This checks class values, correct/incorrect flags, complete uniform 32-row blocks and a SHA-256 fingerprint. Output is aggregate only.
+
+For charts, create an isolated environment and install the tested Matplotlib version:
+
+```bash
 python3 -m venv .venv
 source .venv/bin/activate
 python3 -m pip install -r requirements-docs.txt
 python3 scripts/plot_results.py
+python3 scripts/plot_drive_comparison.py
 ```
 
-On Windows, activate with `.venv\Scripts\Activate.ps1` and use `python` if `python3` is unavailable. Plotting overwrites only the two documented SVG figures. SVG timestamps are suppressed, with stable SVG IDs in the tested Matplotlib environment.
+Windows activation is `.venv\Scripts\Activate.ps1`. Plot scripts overwrite only the documented SVGs; they do not access private data or a model.
 
-These commands do not require school data, GPU access, model downloads, or service keys. They do not validate the model's accuracy. [Validation record](VALIDATION.md).
+## Research execution
 
-## Historical notebook execution cautions
+Read the [recovered notebook guide](../action_recognition/README.md) for historical pins, directory conventions, cell references, required assets and the actual training/evaluation sequence. The old Torch wheel install failed in stored Python 3.12 output; there is no validated research-environment lock. Path conflicts and random test transforms must be addressed in a new run version before executing the whole workflow. The release does not silently fix the original evaluator and then attribute new behavior to old results.
 
-See the [cell-specific notebook audit](BENCHMARK_AUDIT.md). Each notebook is its own exploratory environment; do not install all notebooks' requirements into one environment. In particular, the Vid2Vid Python 3.6 / torch 1.0 / CUDA 10 wheel is a historical dependency, not a modern installation instruction. External repositories and unpinned packages may have changed since the stored runs.
+Original benchmark environments are separate; see [their audit](BENCHMARK_AUDIT.md). External repositories and services may differ from the versions used historically.
 
-Do not execute a notebook automatically simply because its JSON is valid. Review mounts, downloads, third-party terms, retained notebook outputs, paths and GPU requirements first. No claim is made that current services reproduce the original generations.
+## Remaining requirements for experimental replication
 
-## Missing inputs required for actual research reproduction
+1. Resolve development/test basename collisions with authorized media hashes, subject/session grouping and synthetic-parent mappings.
+2. Recover missing camera (57.78%), two-factor (53.33%) and four-factor (81.11%) prediction/run records; identify final data memberships for the October 21 runs.
+3. Bind source revision, dependency lock, configuration, selected checkpoint hash and predictions with video/window IDs to each run.
+4. Record deterministic evaluation transforms and repeat seeds in a new experiment version; do not treat restarted logs as independent repetitions.
+5. Recover generation-service job settings, accepted/rejected samples, source ancestry and exact SynthDa camera/mesh configuration.
+6. Review data/asset release permissions independently of research access.
 
-| Priority | Material | What it establishes |
-|---|---|---|
-| 1 | Evaluation source plus prediction export containing source video ID, frame/time or window ID, true label, predicted label and run ID | Frame-level metric, denominator, aggregation and per-class weighting |
-| 1 | Training/test/validation membership and synthetic parent-source manifests | Unique videos, source reuse and leakage boundaries |
-| 1 | Original SlowFast source/configs and checkpoint hashes | Model identity, loader/transforms, optimizer, batch size, schedule, selection and inference |
-| 2 | Per-condition logs and random seeds | Run-to-table correspondence and repeatability |
-| 2 | Complete prompt manifest and accepted/rejected generation records | Generation settings, service/model versions, QC and source lineage |
-| 2 | SynthDa integration scripts, environment, reconstruction and camera settings | Exact human/pose pipeline and renderer |
-| 3 | Dataset/asset sharing permissions and third-party licenses | What may be released or redistributed |
-
-A sanitized code/log export is sufficient to continue many checks; raw student videos need not be uploaded publicly. Paths, credentials, student identifiers and signed links should be reviewed before an export is committed.
-
-## Recovery procedure
-
-Retain original scripts and names when feasible. Record source file hashes and ownership; map configs/logs/checkpoints to experiments; document original commands; then run small utilities or mock-based tests where meaningful. Keep historical results separate if they disagree with the supplied manuscript. GPU model retraining is outside this documentation update.
+No GPU retraining, checkpoint loading or synthetic video generation was performed in this repository update. [Validation record](VALIDATION.md).

@@ -1,6 +1,6 @@
 # Results and analysis
 
-**Evidence status: paper-reported; not independently reproduced.** Values come from [P1, Section IV-B and Tables VII–VIII](../references/README.md). The author clarified frame-level accuracy; code and prediction counts have not been inspected. Figures and arithmetic are reproducible from the [transcribed CSV](../experiments/paper_reported_results.csv).
+**The tables and original figures in this document preserve paper-reported values.** Eight saved prediction exports have now been independently recomputed as file audits; five paper conditions match, while several versions differ. See the [paper-versus-record reconciliation](DRIVE_AUDIT.md). No model inference was rerun.
 
 | Experiment | Real + synthetic training videos | Top-1 (%) | Change (pp) |
 |---|---:|---:|---:|
@@ -44,18 +44,18 @@ Relative change: `(accuracy_pct - 77.78) / 77.78 * 100` percent.
 
 For hairstyle, the change is **+17.78 percentage points**, approximately **+22.86% relative** using the displayed, rounded values. For clothing, it is **+15.55 pp**, approximately **+19.99% relative**. Small rounding differences in the paper's relative percentages are retained as a caveat; no unavailable unrounded counts are substituted.
 
-## Denominator diagnostic
+## Denominator diagnostic and recovered counts
 
-The percentages are not consistent with one equally weighted classification per test video across 21 videos, nor with seven predictions per class. This is compatible with the author's frame-level clarification and does not itself demonstrate an erroneous result.
+The percentages are not equally weighted rates across 21 videos or seven videos per class. The original arithmetic-only diagnostic found compatible class denominators 17/29/44. That calculation remains a property of the paper transcription, not proof of every paper run.
 
-A bounded integer search gives minimum common denominators of **17 for shaking, 29 for swirling, and 44 for buretting** across the displayed class rates, under nearest rounding to two decimals. These sum to 90. With those denominators, the possible correct totals for the eight rows are 70, 52, 84, 80, 86, 48, 82, and 73; their percentages reproduce all eight Top-1 rates.
+Recovered prediction files now establish 544/928/1,408 scored sampled-frame rows, divided into uniform 32-row blocks. These correspond to 17/29/44 clip blocks. Source code confirms repetition of one clip prediction across sampled frame labels. Six test annotation manifests reproduce those counts under the original sampler's stopping rule. This establishes the denominator for the eight recovered exports, including historical versions whose accuracies differ from the paper.
 
-This is an **arithmetic compatibility check**, not recovered prediction data. Multiples and other rounding-compatible constructions may exist. It does not establish 90 evaluated frames, their membership, independence, sampling scheme, or which checkpoint generated them. No inferred counts are stored as observations in the source CSV. Run `python3 scripts/audit_results.py` to inspect the calculation.
+The source table retains its original author-clarification provenance field to avoid retroactively treating every paper value as code-verified. The recovered CSV uses its own explicit evidence status. Run `scripts/audit_results.py` for paper arithmetic and `scripts/audit_drive_results.py` for stored-output aggregates.
 
 ## Limits of the interpretation
 
 - No run has been independently evaluated, and no seed-to-seed variation or confidence interval is available.
-- The paper's held-out-set claim is not a completed leakage audit. Generated variants of a test source would compromise separation even if filenames differ.
+- Four development/test basename collisions per manifest were found; the paper's held-out-set claim is not a completed media/ancestry leakage audit. Generated variants of a test source would compromise separation even if filenames differ.
 - Artifact/occlusion and distribution-shift explanations are plausible hypotheses discussed by P1; there is no causal ablation isolating them.
 - Frame-level performance is not video-level performance. Correlated frames are not independent test subjects.
 - The three actions and limited school context do not establish broader robustness, educational benefit, or privacy protection.

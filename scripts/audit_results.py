@@ -75,7 +75,7 @@ def changes(value, baseline):
 def main():
     rows = load_results()
     print("PAPER-REPORTED AGGREGATES. No model or prediction records were evaluated.")
-    print("Frame unit: author clarification; original evaluator remains unavailable.\n")
+    print("Paper-table unit provenance: author clarification. Recovered evaluator/results are audited separately by audit_drive_results.py.\n")
     print("Experiment | Top-1 (%) | change (pp) | relative change (%)")
     for r in rows:
         pp, relative = changes(r["top1_pct"], rows[0]["top1_pct"])

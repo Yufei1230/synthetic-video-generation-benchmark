@@ -1,36 +1,47 @@
 # Validation record
 
-Audit date: 2026-10-21. Base: `main` at `dd16e40f6828803cf3d13bffc4f3fe48c473cabf`. Working branch: `docs/complete-research-project-20261021`. These are documentation and integrity checks, not experimental reproduction.
+Audit date: 2026-10-21. Original base: `main` at `dd16e40f6828803cf3d13bffc4f3fe48c473cabf`. Delivery branch: `docs/complete-research-project-20261021`, draft PR #1. This Drive follow-up replaces the earlier access-blocked assessment.
 
 ## Executed checks
 
-| Check | Outcome | Practical scope |
-|---|---|---|
-| Full repository clone and history inspection | Pass; 19 pre-existing commits, seven tracked files | Current original tree contains five notebooks, README, and one-newline results file |
-| PDF text and visual inspection | Nine pages read; page contact sheet and method/result figures inspected | Source methods, tables, people-containing images and editorial issues reviewed |
-| `python3 scripts/audit_results.py` | Pass | Eight rows, dataset arithmetic, pp/relative changes, and compatible denominators checked |
-| `python3 scripts/verify_repository.py` | Pass | Six protected files plus original README text retain SHA-256 values; 57 local Markdown links resolve; table values reconcile |
-| `python3 -m unittest discover -s tests -v` | **8 tests passed** | Includes mutation detection, bad-data rejection, rounding and denominator ambiguity |
-| `python3 scripts/plot_results.py` | Pass | Two SVG charts generated from the source CSV |
-| Repeated figure generation | Identical SVG SHA-256 values in the tested environment | Deterministic documentation export; not deterministic model inference |
-| Figure visual review | Pass | PNG renders of the same Matplotlib figures inspected for labels, scale, values and clipping |
-| Notebook format check | Five parse as nbformat 4 JSON | Syntax/structure only; no notebook execution or schema-completeness claim |
-| Original benchmark Git diff | Empty for `notebooks/` and `results/` | Original source and stored outputs unchanged |
-| `git diff --check` | Pass | No whitespace errors in the reviewed diff |
-| New-content secret/PII/size scan | No matches from the checks described below; largest changed/new file under 12 KB | Scope is newly authored content; inherited concerns tracked separately |
+| Check | Outcome and scope |
+|---|---|
+| Original repository and manuscript | Seven-file tree/19-commit history and all nine manuscript pages inspected in the initial audit |
+| Benchmark preservation | Six protected notebook/result SHA-256 values and the embedded original README text unchanged |
+| Eight prediction exports | 23,040 rows audited; result flags, uniform 32-row blocks, class counts and adjacent class/Top-1 reports reconcile |
+| Public aggregates | `audit_drive_results.py` recomputes eight run summaries, retaining conflicting versions |
+| Video manifests | Eight files, seven distinct hashes; fold counts and four class+basename test/development collisions per manifest recorded |
+| Frame-list/annotation audit | Six pairs agree on all 3,285 video/frame keys; source sampler arithmetic reproduces 2,880 scored rows |
+| Settings and logs | Ten argument files and thirteen event files read; stored validation-step coverage summarized |
+| Upstream comparison | 38 function/class ASTs match NVIDIA SynthDa; four differ and one additional FFmpeg helper exists |
+| Recovered notebook | All source/cell hashes recorded; outputs, execution counts and user metadata removed; private roots replaced |
+| Notebook syntax | 74 Python cells parse; one Colab shell-install cell preserved separately; no whole-notebook execution |
+| Unit tests | **18 tests passed**: malformed evidence, aggregate mutation, preservation and source sampler edge cases |
+| Tables and links | Paper tables, comparison tables and authored local Markdown destinations pass `verify_repository.py` |
+| Figures | Three SVGs regenerated; corresponding Matplotlib PNGs visually inspected for values, labels, scale and clipping |
+| Disclosure and size | Changed/new content scanned for credentials, email addresses, signed links, private Drive paths and embedded raster data; no matches; largest added file 98,243 bytes |
+| Git review | No original `notebooks/` or `results/` diff; intended file changes and whitespace checked before publication |
 
-Environment: Python 3.12.14, Matplotlib 3.10.8. Checks ran without student data, generation-service credentials, GPU inference or model training.
+Commands run from the repository root:
 
-## Content and disclosure review
+```bash
+python3 scripts/audit_results.py
+python3 scripts/audit_drive_results.py
+python3 scripts/verify_repository.py
+python3 -m unittest discover -s tests -v
+python3 scripts/plot_results.py
+python3 scripts/plot_drive_comparison.py
+git diff --check
+```
 
-New files are Markdown, JSON, CSV, BibTeX, Python, SVG, a requirements file and ignore rules. The changed-file list was inspected. No manuscript PDF, raw video, raster student image, checkpoint, archive, internal form or ethics document is included.
+Environment: Python 3.12.14, Matplotlib 3.10.8. Public tests/audits use the standard library; plotting uses Matplotlib. Private CSV/config/log files were used for reconciliation. No raw student media, checkpoint, body-model asset, generation API or GPU model was executed or loaded.
 
-The new-content scan checked private-key headers, common GitHub/Hugging Face/AWS credential patterns, email addresses, signed/token query patterns and files exceeding 1 MB. It found no matches. Pattern scans are not comprehensive proof of absence; the final source/diff review complements them. The preserved historical README was checked by hash separately. Pre-existing notebook token-like download material and temporary service URLs are flagged in [privacy review](DATA_PRIVACY.md); their values are not reproduced in new documentation.
+## Limits
 
-The new Mermaid flowchart source was manually checked for the two generation branches, reconvergence and five-stage horizontal flow. A live GitHub rendering of that Mermaid diagram was not inspected. SVG figures were inspected through renders of the same plotted figures; external links were not exhaustively tested, and historical benchmark links are intentionally preserved.
+These checks establish source-file arithmetic, code behavior and preservation, not model replication, clean subject/source splits, checkpoint provenance, identical evaluation crops, statistical significance, privacy protection or classroom deployment. Prediction files lack video/window IDs; notebook environment/path/sampling issues remain documented.
 
-## What these checks do not establish
+Drive traversal is bounded: raw-frame and third-party dataset/weight subtrees were not exhaustively expanded; the project-materials shortcut target remains inaccessible. Native documents were read as text, not rendered with all embedded media. See docs/SOURCE_INVENTORY.md for coverage.
 
-No original experiment was independently reproduced. No prediction log, dataset membership, checkpoint, random seed, exact SlowFast implementation or generation-service version was recovered. Frame-level accuracy is an author clarification; 17/29/44 is an arithmetic-compatible count construction, not recovered observations. Training/test overlap, classroom generalization, privacy protection, significance and deployment claims remain unverified.
+Mermaid source was checked for two branches and five stages; a live GitHub render was not inspected. Figures were reviewed through renders from the same plotting code. External links were not exhaustively retested. Publisher/manuscript equivalence is unverified.
 
-Drive recursion, file-by-file deduplication, source ownership/licensing and paper-versus-log reconciliation are blocked by unavailable Drive access. Bibliographic records were corroborated, but direct publisher retrieval and comparison with the version of record were unavailable. See [source inventory](SOURCE_INVENTORY.md), [discrepancies](DISCREPANCIES.md), and [reproducibility](REPRODUCIBILITY.md).
+Pattern-based credential checks are not proof of absence. Source/diff review complements them, and pre-existing benchmark concerns remain recorded separately without silently altering preserved files.

@@ -1,61 +1,37 @@
 # Methodology and implementation evidence
 
-This document reconstructs the workflow **described in the supplied paper**, not missing source code. References to sections and tables use [P1](../references/README.md). The available implementation evidence is limited to the separate preliminary benchmark notebooks.
+The study has three evidence layers: the supplied manuscript's intended design, original research source code, and saved data/results. They are reconciled rather than silently merged. See [source register](../references/README.md) and [Drive audit](DRIVE_AUDIT.md).
 
-## Real data and split boundaries
+## Real data and splits
 
-P1 Tables V–VI list 30 real training videos for each of shaking, swirling, and buretting: 90 in total. Section III-E separately describes a fixed real test set of 21 videos, seven per action. Table V's 330-video total equals 90 real plus 240 synthetic and does not include another 21 test videos in that arithmetic. Whether those test videos were independently held out, selected from the 90, or counted elsewhere cannot be determined without a manifest. Do not claim 351 unique videos or confirmed split separation.
+The paper describes 30 real development videos per action (90 total), plus 21 real test videos (seven per action). Its 330-video maximum counts 90 real + 240 synthetic development videos, excluding the separately described test set.
 
-No dataset files, validation split, student/session identifiers, label-to-index mapping, deduplication records, or train/test ancestry manifests were available. Clip duration, frame rate, resolution, crop/resize rules, normalization, and temporal sampling implementation remain unknown. File/folder conventions must be recovered from the original loader rather than invented here.
+The recovered baseline manifest contains 72 train + 18 validation + 21 test rows. The three appearance manifests contain 120 train + 30 validation + 21 test rows each. The source implements an 80/20 stratified development split with seed 297; model randomness is separately seeded 17. Test membership is appended from its own directory.
+
+Camera-related historical manifests have larger development pools than the paper's design. Four class+basename collisions occur between test and development in each distinct manifest. These do not prove identical content, but source/subject separation cannot be assumed. Source filenames and paths remain private; [aggregate counts](../experiments/recovered/dataset_summary.csv) are published.
 
 ## Image-based synthesis
 
-P1 Section III-C and Tables II–III describe:
+The paper describes taking the first frame from one representative real video per action, editing appearance with Google AI Studio, then animating with Kling. Each action receives 20 background, 20 clothing and 20 hairstyle videos: 180 across three actions. Research procedures and folder metadata corroborate this organization; exact generation jobs and QC/ancestry manifests were not recovered.
 
-1. Select one representative real video per action and extract its first frame.
-2. Apply 60 appearance prompts per action: 20 background, 20 clothing, and 20 hairstyle variants, using Google AI Studio.
-3. Animate each edited image with Kling AI and an action-specific prompt.
-4. Obtain 60 videos per action (180 overall), with 20 per action allocated to each appearance factor.
-
-The three animation prompts reported in P1 are “He is shaking the flask.”, “He is swirling the flask.”, and “He is filling the burette with liquid.” These are reported prompts, not a recovered prompt manifest. Whether the last phrase matches the complete operational definition of buretting needs annotation/protocol review.
-
-| Item | Evidence/status |
-|---|---|
-| Frame extraction | Described in P1; extraction script not recovered |
-| Appearance editing | External service workflow described; exact model/version, prompts, edit settings, and job records unavailable |
-| Animation | External Kling workflow described; model/version, duration, seed, and generation settings unavailable |
-| Manual work | P1 Section V-D explicitly describes action-by-action generation and manual prompt design |
-| Output organization and quality control | Original folder structure, acceptance criteria, rejected outputs, and review logs unavailable |
-| Automated visibility checks | Proposed practical guidance in P1 Section V-C; no implementation established |
-
-P1 provides only example appearance prompts, not all 60. No new prompt collection or synthetic samples are invented for this release. Possible motion/tool artifacts and retention of source identity must be assessed before any release or training use.
+The reported action prompts are “He is shaking the flask.”, “He is swirling the flask.”, and “He is filling the burette with liquid.” They are not a full prompt inventory. Human-selected prompts and commercial-service settings remain manual/external components. [Image workflow](../pipelines/image_based/README.md).
 
 ## Video-based synthesis
 
-P1 Section III-C and Table IV describe seven selected real videos per action processed by **SynthDa**, yielding reconstructed 3D human meshes. Because inputs show the upper body, lower-body keypoints are estimated from upper-body proportions and fixed to maintain a mesh prior.
+The paper describes seven source videos per action processed by SynthDa, estimated/fixed lower-body joints for upper-body inputs, and three viewpoints. After removing one front render per action, 6 front + 7 side + 7 top-45-degree views give 20 per action and 60 total.
 
-Three viewpoints are rendered for each selected source: front, side, and top 45 degrees. This produces 21 candidates per action; one front-view output is randomly excluded to retain **6 front + 7 side + 7 elevated = 20 per action**, or 60 overall. The random seed and source membership are not available.
+Recovered exploratory notebooks invoke StridedTransformer-Pose3D, joints2smpl, Blender and PyRender through SynthDa-related workflows. Research notes also describe alternative generation-before-reconstruction trials. They establish actual integration work, but do not identify the exact code revision and inputs for every selected paper clip. [Video workflow and prototype boundaries](../pipelines/video_based/README.md).
 
-The equal budget is **per individual factor**: each appearance factor and the camera factor contribute 60 videos overall. The entire image path contributes 180, so the two complete paths have different totals.
+Camera changes can co-occur with geometry, texture, hand/tool and motion artifacts. The paper's occlusion/reconstruction explanations are hypotheses; no causal ablation isolates them.
 
-Exact pose detection, joint mapping, mesh model, reconstruction optimization, rendering engine, camera coordinates, lighting, textures, and intermediate file formats are not established by the inspected code. Frameworks mentioned in other project discussions cannot be assigned to this exact experiment without provenance. No third-party implementation is copied into this repository.
+## Recognition and evaluation
 
-The paper discusses occlusion, loss of fine tool/hand cues, and reconstruction artifacts as possible reasons for lower accuracy. These explanations are not independently isolated causal effects.
+The recovered model factory selects pretrained PyTorchVideo SlowFast R50, replaces its classifier for three actions, freezes non-projection parameters, and uses Adam with learning rate 0.001 and cross-entropy. Batch size is 1; the configured epoch count is 50. The implementation uses **32 fast-path and 8 slow-path frames**, unlike the paper's 16-frame description. Exact preprocessing, cell references, checkpoint selection and known issues are in the [implementation guide](../action_recognition/README.md).
 
-## Action recognition
+The same random spatial transforms are applied at test time. Test videos are uniformly windowed with a tail-skipping stopping rule. One clip prediction is repeated over its sampled frame labels. Eight recovered exports each contain 2,880 scored rows (544/928/1,408 by class), equivalent in rate to 90 equal-size prediction blocks. These are not independent frame predictions and not equally weighted source-video accuracy.
 
-| Component | What P1 reports | What code must confirm |
-|---|---|---|
-| Architecture | SlowFast, with slow appearance and fast motion pathways | Backbone depth, pathway packing/temporal ratio, classifier head, implementation and commit |
-| Sampling | 16 uniformly sampled frames per clip | Whether 16 refers to one pathway or input before packing; clip duration, stride, padding, duplicates |
-| Training | 50 epochs; learning rate 0.001; cross-entropy | Optimizer, batch size, scheduler, weight decay, augmentation, initialization, pretraining, device |
-| Validation | Not specified | Validation membership, tuning protocol, early stopping |
-| Checkpoints | Not specified | Save criteria, chosen epoch, checkpoint hashes, loading/inference commands |
-| Evaluation | Top-1 and per-class accuracy; fixed 21 real test videos | Prediction unit, frame/window selection, aggregation, class counts, weighting, thresholds |
-| Repeated runs | No seed/repetition protocol reported | Seeds, repeat count, variability, deterministic settings |
-
-The author has clarified **frame-level accuracy**. A model consuming multiple frames and a metric reported per frame can coexist, but the mapping from temporal model outputs to scored frames must be recovered. Do not equate 16 input frames with 16 independent predictions.
+Saved argument files and CSVs corroborate several details, but a full execution environment, stable source/checkpoint binding and prediction-to-video mapping remain missing. All numerical recomputation in this update uses stored exports; no model is trained or rerun.
 
 ## Combination semantics
 
-Tables V–VI and Section IV-D describe increasing pools of factor-specific clips: camera + clothing, then background, then hairstyle. They do not establish that each generated video underwent every edit simultaneously. Documentation therefore uses **combined factor pools**. Neither additive accuracy gains nor equal-budget causal comparisons follow from this design.
+The paper combines factor-specific pools rather than establishing that every synthetic clip received all edits. Its combinations add 120, 180 and 240 synthetic videos in total. These are unequal budgets; changes cannot be attributed purely to interaction between factors. Historical manifests and multiple run versions must be considered separately.

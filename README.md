@@ -1,16 +1,12 @@
 # Enhancing Classroom Monitoring in Science Experiments Using Synthetic Videos
 
-Investigating how synthetic training videos affect recognition of **shaking, swirling, and buretting** in science laboratories. This research combines an existing video-generation technique benchmark with controlled appearance and camera-view augmentation experiments.
+Can synthetic training videos help recognize **shaking, swirling, and buretting** in science laboratories? This project explores video-generation techniques, creates controlled appearance and viewpoint variations, and evaluates their effect on laboratory-action recognition.
 
-**Research portfolio status:** the original benchmark notebooks are preserved. The broader workflow and results below are documented from the supplied paper; the original action-recognition code, dataset manifests, and prediction logs have not yet been recovered. This repository is a research record, not a deployed classroom monitoring application.
+The repository combines the **original generation benchmark**, a recovered **SlowFast research notebook**, and an audit of the paper against saved experimental records. It presents a research study rather than a deployed classroom monitoring system.
 
-[Research overview](docs/RESEARCH_OVERVIEW.md) · [Methodology](docs/METHODOLOGY.md) · [Experiments](docs/EXPERIMENTS.md) · [Result audit](docs/RESULTS_AND_ANALYSIS.md) · [Reproducibility](docs/REPRODUCIBILITY.md)
+[Research overview](docs/RESEARCH_OVERVIEW.md) · [Methodology](docs/METHODOLOGY.md) · [Model and code](action_recognition/README.md) · [Experiments](docs/EXPERIMENTS.md) · [Result audit](docs/DRIVE_AUDIT.md)
 
-## Research question
-
-Can synthetic videos improve recognition of laboratory actions when real student recordings are limited, and which appearance or viewpoint variations help? The study compares a real-only baseline with four individual augmentation factors and three combinations, using a paper-described SlowFast backbone.
-
-## Overall workflow
+## Workflow
 
 ```mermaid
 flowchart LR
@@ -18,97 +14,81 @@ flowchart LR
     R --> V[SynthDa mesh and viewpoint renders]
     I --> A[Dataset augmentation]
     V --> A
-    A --> M[Action recognition]
+    A --> M[SlowFast recognition]
     M --> E[Evaluation]
 ```
 
-The diagram summarizes the **paper-described workflow**, not a collection of executable modules in this repository. Source: [P1, Sections III-C to III-E](references/README.md).
+| Generation path | Controlled factors | Implementation evidence |
+|---|---|---|
+| [Image based](pipelines/image_based/README.md) | Background, clothing, hairstyle | Manual Google AI Studio edits and Kling animation, described in the paper and research plan; generated image/video folders inventoried |
+| [Video based](pipelines/video_based/README.md) | Camera viewpoint | SynthDa integration notebooks and pose/mesh/rendering references inspected; exact lineage of the paper's selected renders remains incomplete |
 
-| Generation path | What changes | Process described in the paper | Evidence available here |
-|---|---|---|---|
-| Image based | Background, clothing, hairstyle | Extract a first frame; edit it with Google AI Studio; animate it with an action prompt in Kling AI | Method description and aggregate results; prompt/job logs unavailable |
-| Video based | Camera angle | Reconstruct human meshes with SynthDa; render front, side, and top 45-degree views | Method description and aggregate results; reconstruction/rendering code unavailable |
+The paper's design uses 90 real development videos, adds 60 synthetic videos per factor, and evaluates on 21 real videos. Recovered manifests contain an 80/20 train/validation split, and some camera-related versions use larger pools. See the [dataset audit](docs/DRIVE_AUDIT.md).
 
-## Experiments and reported results
+## Results and evidence
 
-**All values below are paper-reported, not independently reproduced.** The author clarified that accuracy is evaluated per **frame**, not per video. Evaluation code, sampled-frame counts, aggregation, and split separation remain unverified. The paper specifies 21 real test videos; this is a source-video count, not an established metric denominator. See the [discrepancy report](docs/DISCREPANCIES.md).
+**Saved predictions were recomputed; models were not rerun.** Five paper rows have matching saved results. Two conditions differ, and the four-factor prediction export was not recovered. All paper values remain preserved in their own [source table](experiments/paper_reported_results.csv).
 
-| Experiment | Real + synthetic training videos | Top-1 (%) | Change (pp) |
-|---|---:|---:|---:|
-| Real only | 90 + 0 | 77.78 | +0.00 |
-| Camera angle | 90 + 60 | 57.78 | -20.00 |
-| Clothing | 90 + 60 | 93.33 | +15.55 |
-| Background | 90 + 60 | 88.89 | +11.11 |
-| Hairstyle | 90 + 60 | 95.56 | +17.78 |
-| Camera + Clothing | 90 + 120 | 53.33 | -24.45 |
-| Camera + Clothing + Background | 90 + 180 | 91.11 | +13.33 |
-| Camera + Clothing + Background + Hairstyle | 90 + 240 | 81.11 | +3.33 |
+| Experiment | Paper Top-1 (%) | Saved predictions Top-1 (%) | Comparison |
+|---|---:|---:|---|
+| Real only | 77.78 | 77.78 | Matches |
+| Camera angle | 57.78 | 48.89 | Different record |
+| Clothing | 93.33 | 93.33 | Matches |
+| Background | 88.89 | 88.89 | Matches |
+| Hairstyle | 95.56 | 95.56 | Matches |
+| Camera + Clothing | 53.33 | 80.00 | Different record |
+| Camera + Clothing + Background | 91.11 | 91.11 / 68.89 | Two versions |
+| Camera + Clothing + Background + Hairstyle | 81.11 | — | Prediction export not recovered |
 
-`pp` means percentage points relative to the reported 77.78% baseline. Training counts come from P1 Tables V–VI. Each single factor adds 20 synthetic videos per action; combination rows pool larger factor sets. These are not equal-budget comparisons across all rows.
+![Paper results compared with recovered prediction records](assets/figures/paper_vs_saved_results.svg)
 
-![Single-factor Top-1 accuracy, paper-reported and not independently reproduced](assets/figures/single_factor_accuracy.svg)
+The recovered evaluator assigns one clip prediction to each of its 32 sampled frames. Each saved export contains **2,880 scored rows from 90 uniform blocks**: 544 shaking, 928 swirling, and 1,408 buretting rows. These are correlated sampled-frame scores, not 2,880 independent predictions or subjects. [Evaluation details and source versions](docs/DRIVE_AUDIT.md).
 
-![Multi-factor Top-1 accuracy, paper-reported and not independently reproduced](assets/figures/multi_factor_accuracy.svg)
-
-### What the reported results suggest
-
-- Appearance edits are promising in this study: hairstyle reaches 95.56% (+17.78 pp), clothing 93.33% (+15.55 pp), and background 88.89% (+11.11 pp).
-- Camera augmentation reaches 57.78% (-20.00 pp). Occlusion and reconstruction artifacts are the paper's proposed explanations; causal attribution was not independently tested.
-- More synthetic data does not produce a monotonic gain: the three combinations reach 53.33%, 91.11%, and 81.11% as their synthetic budgets increase.
-
-These observations do not establish statistical significance, generalization to other schools, or a measured privacy guarantee. Repeated seeds, confidence intervals, and a leakage audit require the missing run records.
-
-## Existing synthetic technique benchmark
-
-The preliminary benchmark explores generation options before the downstream action-recognition study. Its notebooks, stored outputs, qualitative comparisons, references, and acknowledgements are retained. They are separate evidence from the paper's controlled experiments.
-
-[CogVideoX](notebooks/CogVideoX.ipynb) · [DynamiCrafter](notebooks/DynamiCraft.ipynb) · [Text2Video](notebooks/Text2Video.ipynb) · [First Order Motion Model](notebooks/first_order_model.ipynb) · [Vid2Vid](notebooks/vid2vid.ipynb)
-
-Read the [notebook audit](docs/BENCHMARK_AUDIT.md) before execution: these are historical Colab workflows with external dependencies, and the `Text2Video` notebook contains a CLIP/CycleGAN workflow whose identity differs from the Text2Video-Zero reference in the original comparison. The original comparison is preserved below as historical content.
+Appearance augmentation is promising in the recovered records: hairstyle reaches 95.56%, clothing 93.33%, and background 88.89%, compared with the 77.78% baseline. Camera and combined-factor conclusions require care because source versions and dataset sizes differ. Filename collisions across development/test splits also require a private media/ancestry audit before claiming leakage-free evaluation.
 
 ## Repository guide
 
 | Location | Contents |
 |---|---|
-| `notebooks/` | Five original notebooks, unchanged |
-| `results/video.md` | Original file, unchanged; currently contains only a newline |
-| `docs/` | Workflow, experiments, analysis, reproducibility, source inventory, discrepancies, privacy, and validation |
-| `experiments/` | Source-attributed transcription of the paper's aggregate results |
-| `assets/figures/` | Reproducible charts of those reported results |
-| `scripts/` | New documentation utilities for arithmetic, figure generation, and repository checks |
-| `tests/` | Tests of the new audit utilities and preservation guarantees |
-| `references/` | Source register, citation, and benchmark integrity manifest |
+| `notebooks/` | Five original generation notebooks, byte-for-byte preserved |
+| `results/video.md` | Original results placeholder, unchanged |
+| `action_recognition/` | Recovered research notebook, redacted saved configurations, implementation guide |
+| `pipelines/` | Source-backed image/video generation workflows and limitations |
+| `experiments/` | Separate paper transcription, recomputed saved-result aggregates and dataset summaries |
+| `docs/` | Research design, methods, result reconciliation, reproducibility, privacy and validation |
+| `scripts/`, `tests/` | Audit/plot utilities and meaningful integrity/regression checks |
+| `references/` | Citation, provenance hashes, attribution and applicable license |
 
-No empty training or pipeline directories are added: those implementations need to come from the original research materials.
+## Run the audits
 
-## Reproduce the documentation checks
-
-From the repository root, with Python 3.10 or newer:
+From the repository root with Python 3.10+:
 
 ```bash
 python3 scripts/audit_results.py
+python3 scripts/audit_drive_results.py
 python3 scripts/verify_repository.py
 python3 -m unittest discover -s tests -v
 ```
 
-To regenerate the charts in an isolated environment:
+These checks use the standard library and need no school data or GPU. To regenerate figures, install `requirements-docs.txt`, then run `scripts/plot_results.py` and `scripts/plot_drive_comparison.py`.
 
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-python3 -m pip install -r requirements-docs.txt
-python3 scripts/plot_results.py
-```
+The [recovered training notebook](action_recognition/notebooks/slowfast_research.ipynb) is an archival implementation with known path, dependency and evaluation issues; read the [execution guide](action_recognition/README.md) before use. Restricted media, checkpoint binaries and private research documents are excluded. [Reproducibility boundaries](docs/REPRODUCIBILITY.md) · [Privacy](docs/DATA_PRIVACY.md) · [Validation](docs/VALIDATION.md).
 
-These commands verify the documented numbers and files; they do **not** train or evaluate SlowFast. See [reproducibility status and missing inputs](docs/REPRODUCIBILITY.md), [source inventory](docs/SOURCE_INVENTORY.md), and [validation record](docs/VALIDATION.md).
+## Preliminary synthetic technique benchmark
+
+The original qualitative exploration is preserved as a separate stage of the project:
+
+[CogVideoX](notebooks/CogVideoX.ipynb) · [DynamiCrafter](notebooks/DynamiCraft.ipynb) · [Text2Video](notebooks/Text2Video.ipynb) · [First Order Motion Model](notebooks/first_order_model.ipynb) · [Vid2Vid](notebooks/vid2vid.ipynb)
+
+Read the [historical notebook audit](docs/BENCHMARK_AUDIT.md) for dependency and provenance limitations. In particular, the `Text2Video` notebook contains CLIP/CycleGAN code, although the original comparison references Text2Video-Zero. The original README is retained below in full.
 
 ## Paper and acknowledgements
 
-Yufei Li, Edwin Chng, Megani Rajendran, Aik Beng Ng, Yong Leng Kelvin Tan, and Simon See. **Enhancing Classroom Monitoring in Science Experiments Using Synthetic Videos.** Bibliographic records identify this as an ICIET 2026 conference paper, pp. 65–73. [DOI](https://doi.org/10.1109/ICIET69664.2026.11561646) · [Citation and verification limits](references/README.md).
+Yufei Li, Edwin Chng, Megani Rajendran, Aik Beng Ng, Yong Leng Kelvin Tan, and Simon See. **Enhancing Classroom Monitoring in Science Experiments Using Synthetic Videos.** ICIET 2026, pp. 65–73. [DOI](https://doi.org/10.1109/ICIET69664.2026.11561646) · [Citation and source verification](references/README.md).
 
-The supplied manuscript is the source for the methods and tables here; its equivalence to the publisher's final file has not been established. The manuscript PDF and identifiable example images are not redistributed.
+The paper acknowledges collaborators at **NVIDIA, NIE/NTU, and Hwa Chong Institution**, and support from the **NTU URECA Undergraduate Research Programme**. This project applies and integrates existing frameworks and services; it does not claim authorship of SynthDa, SlowFast/PyTorchVideo, Google AI Studio or Kling. See [contribution boundaries](docs/RESEARCH_OVERVIEW.md) and [third-party notices](references/THIRD_PARTY_NOTICES.md).
 
-The paper acknowledges collaborators at **NVIDIA, NIE/NTU, and Hwa Chong Institution**, and funding support from the **NTU URECA Undergraduate Research Programme**. The study uses existing frameworks and services, including SynthDa, Google AI Studio, Kling AI, and SlowFast. No ownership of those systems is claimed. See [contribution boundaries](docs/RESEARCH_OVERVIEW.md) and [privacy and licensing review](docs/DATA_PRIVACY.md).
+The supplied manuscript and identifiable example images are not redistributed. The supplied manuscript has not been byte-compared with the publisher's final file.
 
 <details>
 <summary>Original synthetic technique benchmark — preserved historical README</summary>

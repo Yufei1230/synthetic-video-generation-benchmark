@@ -52,9 +52,9 @@ def main():
         fig.text(0.05, 0.86, "Paper-reported results · Not independently reproduced", fontsize=12, color="#536171")
         budget = "90 real + 60 synthetic training videos per single factor." if group == "single" else "90 real + 120 / 180 / 240 synthetic videos; combination budgets differ."
         fig.text(0.05, 0.80, budget, fontsize=10.5, color="#536171")
-        fig.text(0.05, 0.105, "Dashed line: real-only baseline (77.78%). Frame-level accuracy: author clarification; code unverified.", fontsize=9.7)
+        fig.text(0.05, 0.105, "Dashed line: real-only baseline (77.78%). Paper-reported rates; saved records are audited separately.", fontsize=9.7)
         source = "Section IV-B and Table VII" if group == "single" else "Section IV-B and Table VIII"
-        fig.text(0.05, 0.055, f"Source: supplied manuscript, {source}. Evaluation counts and uncertainty unavailable.", fontsize=9.7, color="#536171")
+        fig.text(0.05, 0.055, f"Source: supplied manuscript, {source}. See docs/DRIVE_AUDIT.md for counts and version differences.", fontsize=9.7, color="#536171")
         destination = output / f"{name}.svg"
         fig.savefig(destination, metadata={"Date": None, "Creator": "paper-reported result chart"})
         # Matplotlib inserts trailing spaces in SVG path lines; normalize for Git.
